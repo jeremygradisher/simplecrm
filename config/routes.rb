@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/show'
+
+  #get 'users/index' #this was added when I added the users_controller.rb - don't think I need it
+
   devise_for :users, :controllers => { :registrations => 'devise/registrations' }
+  resources :users, :only => [:index, :show, :destroy]
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
