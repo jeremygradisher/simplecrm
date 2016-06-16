@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615230021) do
+ActiveRecord::Schema.define(version: 20160616153055) do
+
+  create_table "project_picons", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "picon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"

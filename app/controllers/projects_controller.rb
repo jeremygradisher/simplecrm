@@ -10,15 +10,18 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project_picons = @project.project_picons.all
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+    @project_picon = @project.project_picons.build
   end
 
   # GET /projects/1/edit
   def edit
+    @project_picon = @project.project_picons.build
   end
 
   # POST /projects
@@ -28,11 +31,16 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
+         if params.has_key?(:project_picons)
+           params[:project_picons]['picon'].each do |a|
+              @project_picon = @project.project_picons.create!(:picon => a)
+           end
+         end
+         format.html { redirect_to @project, notice: 'Project was successfully created.' }
+         format.json { render :show, status: :created, location: @project }
       else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+         format.html { render action: 'new' }
+         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,6 +50,11 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
+        if params.has_key?(:project_picons)
+           params[:project_picons]['picon'].each do |a|
+              @project_picon = @project.project_picons.create!(:picon => a)
+           end
+        end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
@@ -69,6 +82,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :project_status, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links)
+      params.require(:project).permit(:name, :project_status, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links, project_picons_attributes: [:id, :project_id, :picon])
     end
 end
