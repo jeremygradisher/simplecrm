@@ -1,0 +1,80 @@
+<%- model_class = Project -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <!--<th><%#= model_class.human_attribute_name(:id) %></th>-->
+      <th><%= model_class.human_attribute_name(:project_name) %></th>
+      <th><%= model_class.human_attribute_name(:project_status) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:primary_street) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:primary_city) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:primary_state) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:primary_zip) %></th>-->
+      <th><%= model_class.human_attribute_name(:client_name) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:client_contact) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:client_meeting) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:client_proposal) %></th>-->
+      <th><%= model_class.human_attribute_name(:project_start) %></th>
+      <th><%= model_class.human_attribute_name(:project_finish) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:billing_street) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:billing_city) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:billing_state) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:billing_zip) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:brief_description) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:staffing_notes) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:deal_terms) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:rate) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:additional_terms) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:doc_links) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:created_at) %></th>-->
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <!--<td><%#= link_to project.id, project_path(project) %></td>-->
+        <td><%= link_to project.name, project_path(project) %></td>
+        <td><%= project.project_status %></td>
+        <!--<td><%#= project.primary_street %></td>-->
+        <!--<td><%#= project.primary_city %></td>-->
+        <!--<td><%#= project.primary_state %></td>-->
+        <!--<td><%#= project.primary_zip %></td>-->
+        <td><%= project.client_name %></td>
+        <!--<td><%#= project.client_contact %></td>-->
+        <!--<td><%#= project.client_meeting %></td>-->
+        <!--<td><%#= project.client_proposal %></td>-->
+        <td><%= project.project_start %></td>
+        <td><%= project.project_finish %></td>
+        <!--<td><%#= project.billing_street %></td>-->
+        <!--<td><%#= project.billing_city %></td>-->
+        <!--<td><%#= project.billing_state %></td>-->
+        <!--<td><%#= project.billing_zip %></td>-->
+        <!--<td><%#= project.brief_description %></td>-->
+        <!--<td><%#= project.staffing_notes %></td>-->
+        <!--<td><%#= project.deal_terms %></td>-->
+        <!--<td><%#= project.rate %></td>-->
+        <!--<td><%#= project.additional_terms %></td>-->
+        <!--<td><%#= project.doc_links %></td>-->
+        <!--<td><%#=l project.created_at %></td>-->
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.view")),
+                      project_path(project), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_project_path(project), :class => 'btn btn-default btn-xs' %>
+          <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      project_path(project),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_project_path,
+            :class => 'btn btn-primary' %>

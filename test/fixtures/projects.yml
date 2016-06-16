@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  project_status: MyString
+  primary_street: MyString
+  primary_city: MyString
+  primary_state: MyString
+  primary_zip: MyString
+  client_name: MyString
+  client_contact: MyString
+  client_meeting: MyString
+  client_proposal: MyText
+  project_start: MyString
+  project_finish: MyString
+  billing_street: MyString
+  billing_city: MyString
+  billing_state: MyString
+  billing_zip: MyString
+  brief_description: MyText
+  staffing_notes: MyText
+  deal_terms: MyString
+  rate: MyString
+  additional_terms: MyString
+  doc_links: MyString
+
+two:
+  name: MyString
+  project_status: MyString
+  primary_street: MyString
+  primary_city: MyString
+  primary_state: MyString
+  primary_zip: MyString
+  client_name: MyString
+  client_contact: MyString
+  client_meeting: MyString
+  client_proposal: MyText
+  project_start: MyString
+  project_finish: MyString
+  billing_street: MyString
+  billing_city: MyString
+  billing_state: MyString
+  billing_zip: MyString
+  brief_description: MyText
+  staffing_notes: MyText
+  deal_terms: MyString
+  rate: MyString
+  additional_terms: MyString
+  doc_links: MyString

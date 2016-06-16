@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614185848) do
+ActiveRecord::Schema.define(version: 20160615230021) do
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "project_status"
+    t.string   "primary_street"
+    t.string   "primary_city"
+    t.string   "primary_state"
+    t.string   "primary_zip"
+    t.string   "client_name"
+    t.string   "client_contact"
+    t.string   "client_meeting"
+    t.text     "client_proposal"
+    t.string   "project_start"
+    t.string   "project_finish"
+    t.string   "billing_street"
+    t.string   "billing_city"
+    t.string   "billing_state"
+    t.string   "billing_zip"
+    t.text     "brief_description"
+    t.text     "staffing_notes"
+    t.string   "deal_terms"
+    t.string   "rate"
+    t.text     "additional_terms"
+    t.text     "doc_links"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

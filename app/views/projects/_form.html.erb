@@ -1,0 +1,181 @@
+<%= form_for @project, :html => { :class => "form-horizontal project" } do |f| %>
+
+  <% if @project.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :project_status, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :project_status, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:project_status) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :primary_street, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :primary_street, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_street) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :primary_city, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :primary_city, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_city) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :primary_state, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :primary_state, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_state) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :primary_zip, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :primary_zip, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_zip) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :client_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :client_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:client_name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :client_contact, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :client_contact, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:client_contact) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :client_meeting, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :client_meeting, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:client_meeting) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :client_proposal, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :client_proposal, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:client_proposal) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :project_start, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :project_start, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:project_start) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :project_finish, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :project_finish, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:project_finish) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :billing_street, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :billing_street, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:billing_street) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :billing_city, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :billing_city, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:billing_city) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :billing_state, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :billing_state, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:billing_state) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :billing_zip, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :billing_zip, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:billing_zip) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :brief_description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :brief_description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:brief_description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :staffing_notes, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :staffing_notes, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:staffing_notes) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :deal_terms, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :deal_terms, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:deal_terms) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rate, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :rate, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:rate) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :additional_terms, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :additional_terms, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:additional_terms) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :doc_links, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :doc_links, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:doc_links) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                projects_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
