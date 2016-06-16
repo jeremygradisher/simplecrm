@@ -9,4 +9,7 @@ class Project < ActiveRecord::Base
     has_many :project_proposals, dependent: :destroy
     accepts_nested_attributes_for :project_proposals
     
+    has_many :project_contracts, dependent: :destroy
+    accepts_nested_attributes_for :project_contracts
+    
 end

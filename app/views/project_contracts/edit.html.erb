@@ -1,0 +1,8 @@
+<h1>Editing Project Contract</h1>
+
+<%= render 'form' %>
+
+<%#= link_to 'Show', @project_contract %> |
+<%#= link_to 'Back', project_contracts_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              @project_contract.project, :class => 'btn btn-default'  %>

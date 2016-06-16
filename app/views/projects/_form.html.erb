@@ -202,6 +202,39 @@
      <%# end %>
     <% end %>
     </div>
+    
+  <div class="form-group">  
+  <% if @project_contracts.exists? %>
+    <%= f.label :contract, :class => 'control-label col-lg-2'  %>
+      <div class="col-lg-10">
+        <% @project_contracts.each do |p| %>
+   
+              <div class="form-control" style="height:50px;">
+              <%= link_to p.contract_url, p.contract_url, :target => '_blank', :style => 'font-size:10pt;' %>
+              <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                    edit_project_contract_path(p), :class => 'btn btn-primary', 
+                    :title => 'Edit Attachment'  %>
+              <%#= link_to "Destroy Attachment", destroy_associate_attachment_path(p) %>
+              <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                    project_contract_path(p),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger', :title => 'Delete Attachment'  %>
+              </div>
+              
+        <% end %>
+      </div>
+    
+    <% else %>  
+      <%#= f.fields_for :project_contracts do |p| %>
+         <%= f.label :contract, :class => 'control-label col-lg-2'  %>
+         <div class="col-lg-4">
+         <%= f.file_field :contract, :multiple => true, name: "project_contracts[contract][]", :class => 'form-control' %>
+
+         </div>
+     <%# end %>
+    <% end %>
+  </div>
   
   <hr style="clear:both;">
   
