@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   def show
     @project_picons = @project.project_picons.all
     @project_cicons = @project.project_cicons.all
+    @project_proposals = @project.project_proposals.all
   end
 
   # GET /projects/new
@@ -21,6 +22,8 @@ class ProjectsController < ApplicationController
     @project_picons = @project.project_picons.all
     @project_cicon = @project.project_cicons.build
     @project_cicons = @project.project_cicons.all
+    @project_proposal = @project.project_proposals.build
+    @project_proposals = @project.project_proposals.all
   end
 
   # GET /projects/1/edit
@@ -29,6 +32,8 @@ class ProjectsController < ApplicationController
     @project_picons = @project.project_picons.all
     @project_cicons = @project.project_cicons.build
     @project_cicons = @project.project_cicons.all
+    @project_proposal = @project.project_proposals.build
+    @project_proposals = @project.project_proposals.all
   end
 
   # POST /projects
@@ -46,6 +51,11 @@ class ProjectsController < ApplicationController
          if params.has_key?(:project_cicons)
            params[:project_cicons]['cicon'].each do |a|
               @project_cicon = @project.project_cicons.create!(:cicon => a)
+           end
+         end
+         if params.has_key?(:project_proposals)
+           params[:project_proposals]['proposal'].each do |a|
+              @project_proposal = @project.project_proposals.create!(:proposal => a)
            end
          end
          format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -70,6 +80,11 @@ class ProjectsController < ApplicationController
         if params.has_key?(:project_cicons)
            params[:project_cicons]['cicon'].each do |a|
               @project_cicon = @project.project_cicons.create!(:cicon => a)
+           end
+        end
+        if params.has_key?(:project_proposals)
+           params[:project_proposals]['proposal'].each do |a|
+              @project_proposal = @project.project_proposals.create!(:proposal => a)
            end
         end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -99,6 +114,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :project_status, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links, project_picons_attributes: [:id, :project_id, :picon], project_cicons_attributes: [:id, :project_id, :cicon])
+      params.require(:project).permit(:name, :project_status, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links, project_picons_attributes: [:id, :project_id, :picon], project_cicons_attributes: [:id, :project_id, :cicon], project_proposals_attributes: [:id, :project_id, :proposal])
     end
 end
