@@ -24,39 +24,15 @@
   </div>
   <div class="form-group">
     <%= f.label :project_status, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :project_status, :class => 'form-control' %>
+    <div class="col-lg-2">
+      <%#= f.text_field :project_status, :class => 'form-control' %>
+      <%= f.select :project_status, ['Prospect', 'In Process', 'Complete'], {include_blank: true}, :class => 'form-control' %>
     </div>
     <%=f.error_span(:project_status) %>
   </div>
-  <div class="form-group">
-    <%= f.label :primary_street, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :primary_street, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:primary_street) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :primary_city, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :primary_city, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:primary_city) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :primary_state, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :primary_state, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:primary_state) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :primary_zip, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :primary_zip, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:primary_zip) %>
-  </div>
+  
+  <hr>
+  
   <div class="form-group">
     <%= f.label :client_name, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -64,6 +40,40 @@
     </div>
     <%=f.error_span(:client_name) %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label :client_street, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-3">
+      <%= f.text_field :primary_street, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_street) %>
+
+    
+    <%= f.label :city, :class => 'control-label col-lg-1' %>
+    <div class="col-lg-2">
+      <%= f.text_field :primary_city, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_city) %>
+
+    
+    <%= f.label :state, :class => 'control-label col-lg-1' %>
+    <div class="col-lg-1">
+      <%#= f.text_field :primary_state, :class => 'form-control' %>
+      <%= f.select :primary_state, ['AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'], {include_blank: true}, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_state) %>
+
+    
+    <%= f.label :zip, :class => 'control-label col-lg-1' %>
+    <div class="col-lg-1">
+      <%= f.text_field :primary_zip, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:primary_zip) %>
+  </div>
+  
+  <hr>
+  
+
   <div class="form-group">
     <%= f.label :client_contact, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -81,10 +91,14 @@
   <div class="form-group">
     <%= f.label :client_proposal, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :client_proposal, :class => 'form-control' %>
+      <%#= f.text_field :client_proposal, :class => 'form-control' %>
+      <%= f.text_area :client_proposal, :rows => 4, :class => 'form-control' %>
     </div>
     <%=f.error_span(:client_proposal) %>
   </div>
+  
+  <hr>
+  
   <div class="form-group">
     <%= f.label :project_start, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -99,69 +113,88 @@
     </div>
     <%=f.error_span(:project_finish) %>
   </div>
+  
+  <hr>
+  
   <div class="form-group">
-    <%= f.label :billing_street, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <%= f.label :billing_address, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-3">
       <%= f.text_field :billing_street, :class => 'form-control' %>
     </div>
     <%=f.error_span(:billing_street) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :billing_city, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+
+    
+    <%= f.label :city, :class => 'control-label col-lg-1' %>
+    <div class="col-lg-2">
       <%= f.text_field :billing_city, :class => 'form-control' %>
     </div>
     <%=f.error_span(:billing_city) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :billing_state, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :billing_state, :class => 'form-control' %>
+
+    
+    <%= f.label :state, :class => 'control-label col-lg-1' %>
+    <div class="col-lg-1">
+      <%#= f.text_field :billing_state, :class => 'form-control' %>
+      <%= f.select :billing_state, ['AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'], {include_blank: true}, :class => 'form-control' %>
     </div>
     <%=f.error_span(:billing_state) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :billing_zip, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+
+
+    <%= f.label :zip, :class => 'control-label col-lg-1' %>
+    <div class="col-lg-1">
       <%= f.text_field :billing_zip, :class => 'form-control' %>
     </div>
     <%=f.error_span(:billing_zip) %>
   </div>
+  
+  <hr>
+  
   <div class="form-group">
     <%= f.label :brief_description, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :brief_description, :class => 'form-control' %>
+      <%#= f.text_field :brief_description, :class => 'form-control' %>
+      <%= f.text_area :brief_description, :rows => 4, :class => 'form-control' %>
     </div>
     <%=f.error_span(:brief_description) %>
   </div>
   <div class="form-group">
     <%= f.label :staffing_notes, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :staffing_notes, :class => 'form-control' %>
+      <%#= f.text_field :staffing_notes, :class => 'form-control' %>
+      <%= f.text_area :additional_terms, :rows => 4, :class => 'form-control' %>
     </div>
     <%=f.error_span(:staffing_notes) %>
   </div>
+  
+  <hr>
+  
   <div class="form-group">
     <%= f.label :deal_terms, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :deal_terms, :class => 'form-control' %>
+    <div class="col-lg-2">
+      <%#= f.text_field :deal_terms, :class => 'form-control' %>
+      <%= f.select :deal_terms, ['Hourly', 'Monthly', 'One Time'], {include_blank: true}, :class => 'form-control' %>
     </div>
     <%=f.error_span(:deal_terms) %>
-  </div>
-  <div class="form-group">
+
+    
     <%= f.label :rate, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-6">
       <%= f.text_field :rate, :class => 'form-control' %>
     </div>
     <%=f.error_span(:rate) %>
   </div>
+
   <div class="form-group">
     <%= f.label :additional_terms, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :additional_terms, :class => 'form-control' %>
+      <%#= f.text_field :additional_terms, :class => 'form-control' %>
+      <%= f.text_area :additional_terms, :rows => 4, :class => 'form-control' %>
     </div>
     <%=f.error_span(:additional_terms) %>
   </div>
+  
+  <hr>
+  
+
   <div class="form-group">
     <%= f.label :doc_links, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
