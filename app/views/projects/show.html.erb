@@ -45,12 +45,12 @@
             <%= @project.name %>
             
             <span style="margin-left:40px;">
-              <% if @project.project_status == 'Prospect' %>
-                <i class="fa fa-check" style="color:#6991fd" title="Prospect"></i> Prospect
+              <% if @project.project_status == 'In Process' %>
+                <i class="fa fa-check" style="color:#e78b23" title="In Process"></i> In Process
               <% elsif @project.project_status == 'Complete' %>
                 <i class="fa fa-check" style="color:#e661ac" title="Complete"></i> Complete
               <% else %>
-                <i class="fa fa-check" style="color:#e78b23" title="In Process"></i> In Process
+                <i class="fa fa-check" style="color:#6991fd" title="Prospect"></i> Prospect
               <% end %>
               
             </span>
@@ -59,26 +59,33 @@
     <div class="show3">
       <table style="width:100%">
         <tr>
-          <td style="width:50%">
-            <u><%= model_class.human_attribute_name(:primary_address) %>:</u><br>
-            <%= @project.client_name %><br>
-            <%= @project.primary_street %><br>
-            <%= @project.primary_city %> <%= @project.primary_state %> <%= @project.primary_zip %>
-          </td>
-        
-          <td>        
-            <u><%= model_class.human_attribute_name(:billing_address) %>:</u><br>
-            <%= @project.client_name %><br>
-            C/O: <%= @project.client_contact %><br>
-            <%= @project.billing_street %><br>
-            <%= @project.billing_city %> <%= @project.billing_state %> <%= @project.billing_zip %>
-          </td>
+          <% if @project.primary_street.length >= 1 %>
+            <td style="width:50%">
+              <u><%= model_class.human_attribute_name(:primary_address) %>:</u><br>
+              <%= @project.client_name %><br>
+              <%= @project.primary_street %><br>
+              <%= @project.primary_city %> <%= @project.primary_state %> <%= @project.primary_zip %>
+            </td>
+          <% end %>
+          
+          <% if @project.billing_street.length >= 1 %>        
+            <td>        
+              <u><%= model_class.human_attribute_name(:billing_address) %>:</u><br>
+              <%= @project.client_name %><br>
+              C/O: <%= @project.client_contact %><br>
+              <%= @project.billing_street %><br>
+              <%= @project.billing_city %> <%= @project.billing_state %> <%= @project.billing_zip %>
+            </td>
+          <% end %>
         </tr>
       </table>
     </div>
     
-    <hr style="clear:both;">
+    <% if @project.primary_street.length >= 1 || @project.billing_street.length >= 1 %>
+      <hr style="clear:both;">
+    <% end %>
     
+    <% if @project_cicons.exists? %>
     <div class="show3" style="text-align:center;">
     <u><%= @project.client_name %></u><br>
     
@@ -99,22 +106,26 @@
               
         <% end %>
     </div>
-          
+    <% end %>
 
-      
+
+    <% if @project_cicons.exists? %>
+      <hr style="clear:both;">
+    <% end %>
     
+    <% if @project.client_meeting.length >= 1 %>
+      <div class="show3">
+        <u><%= model_class.human_attribute_name(:client_meeting) %>:</u>
+        <%= @project.client_meeting %>
+      </div>
+    <% end %>
     
-    <hr style="clear:both;">
-    
-    <div class="show3">
-      <u><%= model_class.human_attribute_name(:client_meeting) %>:</u>
-      <%= @project.client_meeting %>
-    </div>
-    
-    <div class="show3">
-      <u><%= model_class.human_attribute_name(:client_proposal) %>:</u><br>
-      <%= simple_format(@project.client_proposal) %>
-    </div>
+    <% if @project.client_proposal.length >= 1 %>
+      <div class="show3">
+        <u><%= model_class.human_attribute_name(:client_proposal) %>:</u><br>
+        <%= simple_format(@project.client_proposal) %>
+      </div>
+    <% end %>
     
     <div class="show3">
       <div class="well" style="text-align:center;float:left;width:47%;margin-right:3%;">  
@@ -203,45 +214,66 @@
     
     <hr style="clear:both;">
     
+    <% if @project.project_start.length >= 1 %>
     <div class="show3">
       <u><%= model_class.human_attribute_name(:project_start) %>:</u>
       <%= @project.project_start %>
     </div>
+    <% end %>
 
+    <% if @project.project_finish.length >= 1 %>
     <div class="show3">
       <u><%= model_class.human_attribute_name(:project_finish) %>:</u>
       <%= @project.project_finish %>
     </div>
+    <% end %>
 
+    <% if @project.project_start.length >= 1 || @project.project_finish.length >= 1 %>
     <hr style="clear:both;">
-    
+    <% end %>
+
+    <% if @project.brief_description.length >= 1 %>    
     <div class="show3">
       <u><%= model_class.human_attribute_name(:brief_description) %>:</u><br>
       <%= simple_format(@project.brief_description) %>
     </div>
-    
+    <% end %>
+
+    <% if @project.staffing_notes.length >= 1 %>    
     <div class="show3">
       <u><%= model_class.human_attribute_name(:staffing_notes) %>:</u><br>
       <%= simple_format(@project.staffing_notes) %>
     </div>
+    <% end %>
 
-  <hr style="clear:both;">
-    
+    <% if @project.brief_description.length >= 1 || @project.staffing_notes.length >= 1 %>
+    <hr style="clear:both;">
+    <% end %>
+
+    <% if @project.deal_terms.length >= 1 %>    
     <div class="show3">
       <u><%= model_class.human_attribute_name(:deal_terms) %>:</u>
       <%= @project.deal_terms %>
     </div>
-    
+    <% end %>
+
+    <% if @project.rate.length >= 1 %>    
     <div class="show3">
       <u><%= model_class.human_attribute_name(:rate) %>:</u>
       <%= @project.rate %>
     </div>
- 
+    <% end %>
+
+    <% if @project.additional_terms.length >= 1 %> 
      <div class="show3">
       <u><%= model_class.human_attribute_name(:additional_terms) %>:</u><br>
       <%= simple_format(@project.additional_terms) %>
-    </div>   
+    </div>  
+    <% end %>
 
+    <% if @project.deal_terms.length >= 1 || @project.rate.length >= 1 || @project.additional_terms.length >= 1 %>
+     <hr style="clear:both;">
+    <% end %>
     
     <% if @project.doc_links.length >= 1 %>
       <%= form_for @project, :html => { :class => "form-horizontal project" } do |f| %>
@@ -255,7 +287,7 @@
   </div><!--end <div class="col-lg-8">-->
 
 
-<hr style="clear:both;padding-top:20px;">
+<hr style="clear:both;margin-top:40px;">
 
 <!-- Back buttons -->
   <div class="col-lg-12" style="text-align:center;">
@@ -276,3 +308,26 @@
 <!-- end Back buttons -->
 
 <br><br><br>
+
+     <script type="text/javascript">
+      $(document).ready(function() {
+          $(".tag-test").tagit({
+          
+              // Options
+              readOnly: true,
+   
+              // Events
+              onTagClicked: function(event, ui) {
+                  console.log(ui.tag);
+                  console.log(ui.tagLabel);
+                  //window.location = ui.tag;
+                  window.open(ui.tagLabel);
+              },
+              onTagLimitExceeded: function(event, ui) {
+                  console.log(ui.tag);
+              }
+          
+          });
+  
+      });
+    </script> 

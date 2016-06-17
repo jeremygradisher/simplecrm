@@ -337,10 +337,53 @@
   <div class="form-group">
     <%= f.label :doc_links, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :doc_links, :class => 'form-control' %>
+      <%= f.text_field :doc_links, :class => 'form-control tag-test' %>
     </div>
     <%=f.error_span(:doc_links) %>
   </div>
+  
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".tag-test").tagit({
+        
+            // Options
+            fieldName: "doc_links",
+            //availableTags: ["c++", "java", "php", "javascript", "ruby", "python", "c"],
+            //autocomplete: {delay: 0, minLength: 2},
+            //showAutocompleteOnFocus: false,
+            removeConfirmation: false,
+            caseSensitive: true,
+            allowDuplicates: false,
+            allowSpaces: false,
+            readOnly: false,
+            tagLimit: null,
+            singleField: false,
+            singleFieldDelimiter: ',',
+            singleFieldNode: null,
+            tabIndex: null,
+            placeholderText: null,
+        
+            // Events
+            onTagClicked: function(event, ui) {
+                console.log(ui.tag);
+                console.log(ui.tagLabel);
+                //window.location = ui.tag;
+                window.open(ui.tagLabel);
+            },
+            onTagLimitExceeded: function(event, ui) {
+                console.log(ui.tag);
+            }
+        
+        });
+
+    });
+  </script>
+  
+  
+  
+  
+  
+  
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
