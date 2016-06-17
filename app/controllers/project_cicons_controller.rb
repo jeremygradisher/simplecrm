@@ -56,7 +56,7 @@ class ProjectCiconsController < ApplicationController
   def destroy
     @project_cicon.destroy
     respond_to do |format|
-      format.html { redirect_to project_cicons_url, notice: 'Project cicon was successfully destroyed.' }
+      format.html { redirect_to @project_cicon.project, notice: 'Project cicon was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
