@@ -21,7 +21,7 @@
 <!-- left column 1/3 -->
   <div class="col-lg-4">
     <% @project_picons.each do |p| %>
-          <%= image_tag p.picon_url, :style => 'max-width:90%;padding:5%;' %><br>
+          <%= image_tag p.picon_url, :style => 'max-width:100%;padding:5%;' %><br>
           
           <div style="margin-left:auto;margin-right:auto;text-align:center;">
           <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
@@ -85,9 +85,9 @@
       <hr style="clear:both;">
     <% end %>
     
-    <% if @project_cicons.exists? %>
+
     <div class="show3" style="text-align:center;">
-    <u><%= @project.client_name %></u><br>
+    <u>Client: <%= @project.client_name %></u><br>
     
         <% @project_cicons.each do |p| %>
               <%= image_tag p.cicon_url, :style => 'max-width:90%;max-height:150px;padding:5%;' %><br>
@@ -106,7 +106,7 @@
               
         <% end %>
     </div>
-    <% end %>
+
 
 
     <% if @project_cicons.exists? %>
