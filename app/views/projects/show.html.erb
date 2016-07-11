@@ -92,14 +92,7 @@
         <% end %>
       </div>
     
-    <%# if @project.nbd.length >= 1 %>
-      <div class="col-lg-6" style="padding-left:0;">
-        <div class="show3">      
-            <u><%= model_class.human_attribute_name(:nbd) %></u>:
-            <%= @project.nbd %>
-        </div>
-      </div>
-    <%# end %>
+
     
     <div class="show3">
       <table style="width:100%">
@@ -276,6 +269,32 @@
     <% if @project.project_start.length >= 1 || @project.project_finish.length >= 1 %>
     <hr style="clear:both;">
     <% end %>
+    
+    <%# if @project.nbd.length >= 1 %>
+      <div class="col-lg-6" style="padding-left:0;">
+        <div class="show3">      
+            <u><%= model_class.human_attribute_name(:nbd) %></u>:
+            <%= @project.nbd %>
+        </div>
+      </div>
+    <%# end %>
+    
+    <%# if @services.length >= 1 %>
+      <div class="col-lg-6" style="padding-left:0;">
+        <div class="show3">
+              <span>
+                Services Provided:
+                <% @services.each do |p| %>
+                  <%= p.name %> 
+                <% end %>
+              </span>
+        </div>
+      </div>
+    <%# end %>
+    
+    <%# if @project.project_start.length >= 1 || @project.project_finish.length >= 1 %>
+    <hr style="clear:both;">
+    <%# end %>
 
     <% if @project.brief_description.length >= 1 %>    
     <div class="show3">

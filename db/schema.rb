@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711192225) do
+ActiveRecord::Schema.define(version: 20160711201117) do
 
   create_table "project_cicons", force: :cascade do |t|
     t.integer  "project_id"
@@ -69,6 +69,19 @@ ActiveRecord::Schema.define(version: 20160711192225) do
     t.string   "phases"
     t.string   "grand_total"
     t.string   "nbd"
+  end
+
+  create_table "projects_services", id: false, force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "service_id", null: false
+  end
+
+  add_index "projects_services", ["project_id", "service_id"], name: "index_projects_services_on_project_id_and_service_id"
+
+  create_table "services", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

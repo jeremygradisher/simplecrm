@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :services
   resources :project_contracts
   resources :project_proposals
   resources :project_cicons

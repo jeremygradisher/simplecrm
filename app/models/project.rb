@@ -12,4 +12,6 @@ class Project < ActiveRecord::Base
     has_many :project_contracts, dependent: :destroy
     accepts_nested_attributes_for :project_contracts
     
+    has_and_belongs_to_many :services, dependent: :destroy
+    
 end
