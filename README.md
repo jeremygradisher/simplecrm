@@ -2,17 +2,11 @@
 ## Customer Relationship Management for work.shopMG
 
 Outstanding to do list as follows:<br>
--Services field addition - DDCM, Projects, Spark, Apps
-
 -search functionality ransack
-
--datepickers to start and finish dates
 
 -add project duration jQuery
 
 -form changes according to status
-
--9 stages of status
 
 -branded 404, 422 and 500
 

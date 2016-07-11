@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require devise_bootstrap_views
+ *= require bootstrap-datepicker
+ *= require jquery-ui
  *= require jquerytagit
  *= require_tree .
  *= require_self
