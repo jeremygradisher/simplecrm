@@ -129,6 +129,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :project_status, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links, project_picons_attributes: [:id, :project_id, :picon], project_cicons_attributes: [:id, :project_id, :cicon], project_proposals_attributes: [:id, :project_id, :proposal], project_contracts_attributes: [:id, :project_id, :contract])
+      params.require(:project).permit(:name, :project_status, :phases, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links, project_picons_attributes: [:id, :project_id, :picon], project_cicons_attributes: [:id, :project_id, :cicon], project_proposals_attributes: [:id, :project_id, :proposal], project_contracts_attributes: [:id, :project_id, :contract])
     end
 end
