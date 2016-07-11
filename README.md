@@ -4,15 +4,11 @@
 Outstanding to do list as follows:<br>
 -search functionality ransack
 
--add project duration jQuery
-
 -form changes according to status
 
 -branded 404, 422 and 500
 
 -Project form validations
-
--registration needs to be turned off
 
 ###wishlist:<br>
 -milia - potential here for individual entries
