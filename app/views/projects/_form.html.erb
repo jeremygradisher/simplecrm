@@ -329,6 +329,17 @@
     </div>
     <%=f.error_span(:rate) %>
   </div>
+  
+  <div class="complete_form">
+  <hr>
+    <div class="form-group">
+      <%= f.label "Project Grand Total", :class => 'control-label col-lg-2' %>
+      <div class="col-lg-4">
+        <%= f.text_field :grand_total, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(:grand_total) %>
+    </div>  
+  </div>
 
   <div class="form-group">
     <%= f.label :additional_terms, :class => 'control-label col-lg-2' %>

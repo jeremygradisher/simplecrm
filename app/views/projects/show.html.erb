@@ -292,11 +292,20 @@
       <%= @project.deal_terms %>
     </div>
     <% end %>
+    
+    
 
     <% if @project.rate.length >= 1 %>    
     <div class="show3">
       <u><%= model_class.human_attribute_name(:rate) %>:</u>
       <%= @project.rate %>
+    </div>
+    <% end %>
+    
+    <% if @project.project_status == 'Complete' %>
+    <div class="show3">
+    <u><%= model_class.human_attribute_name(:grand_total) %></u>: 
+    <%= @project.grand_total %>
     </div>
     <% end %>
 
