@@ -92,6 +92,15 @@
         <% end %>
       </div>
     
+    <%# if @project.nbd.length >= 1 %>
+      <div class="col-lg-6" style="padding-left:0;">
+        <div class="show3">      
+            <u><%= model_class.human_attribute_name(:nbd) %></u>:
+            <%= @project.nbd %>
+        </div>
+      </div>
+    <%# end %>
+    
     <div class="show3">
       <table style="width:100%">
         <tr>

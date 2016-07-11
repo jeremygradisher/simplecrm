@@ -311,6 +311,14 @@
     </div>
     <%=f.error_span(:staffing_notes) %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :nbd, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.select :nbd, ['Michael', 'Brandy', 'Jeremy'], {include_blank: true}, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nbd) %>
+  </div>
   
   <hr>
   
