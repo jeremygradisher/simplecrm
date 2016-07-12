@@ -1,21 +1,49 @@
-<h1>work.shop CRM notes:</h1>
-*These are things that need to be addressed here for sure. If you see anything else we need holler!
+<h1>workshopcrm - WIP</h1><br>
+<h2>Customer Relationship Management for work.shopMG</h2><br><br>
 <hr>
-<p>Services field additon - dropdown: DDCM, Projects, Spark, Apps</p>
-<p>Search Functionality - Ransack - search by status, type of service maybe more.</p>
-<p>-Need datepickers added to the start and finish dates within the projects/_form</p>
-<p>-add project duration jquery to the show page</p>
-<p>-project form needs to change according to status</p>
-<p>integrate Milia gem</p>
-<p>-there will be 9 stages of status - need that list from Michael and need that integrated</p>
-<p>-needs branded 404, 422 and 500</p>
-<p>Project form validations</p>
-<p>registration turned off.</p>
-<p>Upload image larger than the validation size of 1mb throws you to one of the error pages - That needs to be solved!</p>
-<p>Message displayed after signing up is over written by "You must sign in to continue" if the home page is protected</p>
+Outstanding to do list as follows:<br>
+-search functionality ransack (needed now)<br><br>
+
+-form changes according to status (needed now)<br><br>
+
+-branded 404, 422 and 500 (This can wait if need be)<br><br>
+
+-Project form validations (There are no current validations - that's ok for internal)<br><br>
+
+<h2>wishlist:</h2><br>
+-milia or apartment (or equivelant) - potential here for multitenancy<br>
+*The term "software multitenancy" refers to a software architecture in which a single <br>
+instance of software runs on a server and serves multiple tenants. A tenant is a group <br>
+of users who share a common access with specific privileges to the software instance.<br><br>
+
+-upload image validation error message needs fixing<br><br>
+
+-message after signing up is overwritten by the not signed in message<br><br>
+
 <hr>
+<h2>#</h2> If cloning this realize a couple of things:<br><br>
 
+-it's using sqlite3 in development and PostgreSQL in production (gemfile)<br><br>
 
+-it's using sendgrid for sign-up email confirmations (.baschrc)<br>
+export SENDGRID_USERNAME=xxxxxxxxxx<br>
+export SENDGRID_PASSWORD=xxxxxxxxxx<br><br>
 
-            
+-send grid port (config/environment.rb) :port => '587' for heroku sign-ups :port => '2587' for Cloud9 sign-ups
+<br><br>
+-it uses AWS for file storage - just needs an S3 bucket and credentials<br>
+$ heroku config:set S3_ACCESS_KEY=xxxxxxxxxxxxxxxxxx<br>
+$ heroku config:set S3_SECRET_KEY=xxxxxxxxxxxxxxxxxx<br>
+$ heroku config:set S3_BUCKET=xxxxxxxxxxxxxxxxxx<br><br>
 
+-config/environments/development.rb and production has something that needs to be addressed:<br><br>
+
+development:<br>
+config.action_mailer.default_url_options = { :host => 'hxxp://greeby-associate-tracker-jxxxxxxxxxxxer.c9users.io'}
+<br><br>
+production:<br>
+config.action_mailer.default_url_options = { :host => 'greeby-associate-tracker.herokuapp.com', :protocol => 'https'}
+  <br><br>
+-config/initializers/devise.rb - where the email notifications are coming from:<br>
+config.mailer_sender = 'no-reply@workshop-mg.com'
+<br><br><br><br>

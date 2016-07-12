@@ -82,7 +82,10 @@ min-height: 664px;
 .jumbotron h1 {text-align: center;}
 .btn {margin-bottom: 10px;}
 .collection-check-box-altered {float: left;margin-right: 10px;}
-/*.collection-check-box-altered label {width: 30px;}*/
+.collection-check-box-altered label {width: 28px;margin-top:6px;}
+
+.collection-check-box-altered-again {float: left;margin-right: 20px;}
+.collection-check-box-altered-again label {width: auto;margin-top:6px;}
 
 .collection-check-box-alt {float: left;margin-right: 20px;}
 .collection-check-box-alt label {width: 40px; height: 100%; margin: 10px 0 10px 0;}
@@ -158,3 +161,107 @@ a:hover {
 }
 
 
+.navbar-brand {
+    float: left;
+    padding: 8px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 50px;
+}
+
+.form-control-image {
+    vertical-align: top;
+    height:18pt;
+    margin-top:0;
+    margin-bottom:0;    
+    border-radius:4px;
+    margin-right:4px;
+}
+
+.form-control-button {
+    vertical-align: top;
+    font-size:20pt;
+    line-height:18pt;
+    margin-top:0;
+    margin-bottom:0;
+    margin-right:4px;
+}
+
+a.stay-black, a.stay-black:visited {
+    color:#000;
+}
+
+a.stay-black:hover {
+    color:#000;
+    background:none;
+    background-color:none;
+}
+
+td > a:hover, td > a:visited {
+    color:#000;
+    background:none !important;
+    background-color:none !important;
+}
+
+.form-control {
+    height:38px;
+}
+
+/* Tim's additions */
+.new-user-login .panel-default {
+  /*border-color: #58595b;*/
+  border-color: #210f5b;
+}
+.new-user-login .panel-default .panel-heading {
+  color: #fff;
+  /*background-color: #58595b;
+  border-color: #58595b;*/
+  background-color: #210f5b;
+  border-color: #210f5b;
+  padding: 10px;
+}
+.new-user-login .panel-default .panel-body {
+  padding: 10px;
+}
+.new-user-login .input-group-addon {
+  min-width: 40px;
+}
+.new-user-login .btn-primary {
+  width: 100%;
+  color: #fff;
+  /*background-color: #f16133;
+  border-color: #f16133;*/
+  background-color: #566e92;
+  border-color: #566e92;
+}
+.new-user-login .btn-primary:hover, .new-user-login .btn-primary:focus, .new-user-login .btn-primary:active {
+  color: #fff;
+  background-color: #ff3d00;
+  border-color: #ff3d00;
+}
+
+.new-user-login .btn-primary-branded {
+  color: #fff;
+  /*background-color: #f16133;
+  border-color: #f16133;*/
+  background-color: #566e92;
+  border-color: #566e92;
+}
+.new-user-login .btn-primary-branded:hover, .new-user-login .btn-primary-branded:focus, .new-user-login .btn-primary-branded:active {
+  color: #fff;
+  background-color: #ff3d00;
+  border-color: #ff3d00;
+}
+
+.new-user-login .footer-text {
+  text-align: center;
+  color: #777;
+}
+.new-user-login .footer-text a {
+  color: #777;
+}
+.new-user-login .footer-text a:hover, .new-user-login .footer-text a:focus, .new-user-login .footer-text a:active {
+  color: #000;
+  background-color: transparent;
+}
+/* Tim's additions */

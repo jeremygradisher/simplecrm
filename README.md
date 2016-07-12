@@ -2,16 +2,19 @@
 ## Customer Relationship Management for work.shopMG
 
 Outstanding to do list as follows:<br>
--search functionality ransack
+-search functionality ransack (needed now)
 
--form changes according to status
+-form changes according to status (needed now)
 
--branded 404, 422 and 500
+-branded 404, 422 and 500 (This can wait if need be)
 
--Project form validations
+-Project form validations (There are no current validations - that's ok for internal)
 
 ###wishlist:<br>
--milia - potential here for individual entries
+-milia or apartment (or equivelant) - potential here for multitenancy<br>
+*The term "software multitenancy" refers to a software architecture in which a single 
+instance of software runs on a server and serves multiple tenants. A tenant is a group 
+of users who share a common access with specific privileges to the software instance.
 
 -upload image validation error message needs fixing
 
