@@ -2,8 +2,6 @@
 ## Customer Relationship Management for work.shopMG
 
 Outstanding to do list as follows:<br>
--search functionality ransack (needed now)
-
 -form changes according to status (needed now)
 
 -branded 404, 422 and 500 (This can wait if need be)

@@ -1,7 +1,48 @@
 <%- model_class = Project -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
+<div class="new-user-login">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><strong style="font-size:125%;">Project Database Search</strong></div>
+      <div class="panel-body">
+    
+      <fieldset class="search-field">
+        <!--<legend>Search Our Database</legend>-->
+        <%= search_form_for @search do |f| %>
+          
+          <div class="col-lg-3">
+              <%= f.label :name_cont, "Project Name Contains:" %><br>
+              <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Search for..." %>
+          </div>
+          
+          <div class="col-lg-2">
+              <%= f.label :project_status_cont, "Project Status:" %><br>
+              <%= f.select :project_status_cont, options_for_select([['Prospect'], ['In Process'], ['Complete']], :selected => @search.project_status_cont), include_blank: true %>
+          </div>
+          
+          <div class="col-lg-5">
+            <%= f.label "Services:" %><br />
+            <%= f.collection_check_boxes :services_id_in_any, Service.all, :id, :name do |b| %>
+              <div class="collection-check-box-altered form-control-altered">
+                <%= b.check_box %>
+                <%= b.label %>
+              </div>
+            <% end %>
+          </div>
+          
+          <div class="col-lg-2">
+            <div class="actions" style="text-align:right;margin-top:23px;">
+              <%= f.submit "Search", :class => "btn btn-primary-branded jicon" %>
+              <%= link_to "Clear", request.path, :class => "btn btn-default jicon" %>
+            </div>
+          </div>
+        <% end %>
+      </fieldset>
+      </div>
+    </div>
 </div>
+
+
 <table class="table table-striped">
   <thead>
     <tr>

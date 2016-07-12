@@ -82,7 +82,7 @@ min-height: 664px;
 .jumbotron h1 {text-align: center;}
 .btn {margin-bottom: 10px;}
 .collection-check-box-altered {float: left;margin-right: 10px;}
-.collection-check-box-altered label {width: 28px;margin-top:6px;}
+.collection-check-box-altered label {margin-top:6px;}
 
 .collection-check-box-altered-again {float: left;margin-right: 20px;}
 .collection-check-box-altered-again label {width: auto;margin-top:6px;}
@@ -103,10 +103,10 @@ min-height: 664px;
 .show2 {font-size:16pt;margin-bottom:10px}
 .show3 {font-size:12pt;margin-bottom:10px}
 
-.form-control-altered, #q_wrklocs_id_in_any, #q_status_cont, #q_active_eq {
+.form-control-altered, #q_wrklocs_id_in_any, #q_project_status_cont, #q_active_eq {
 display: block;
     //width: 60px;
-    height: 34px;
+    height: 38px;
     padding: 6px 8px;
     font-size: 14px;
     line-height: 1.42857143;

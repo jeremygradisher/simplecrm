@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @search = Project.search(params[:q])
+    
+    #@projects = Project.all
+    @projects = @search.result(distinct: true).order(:name, :id)
+    #@projects = @search.result(distinct: true).order(:name, :id).paginate(:page => params[:page], :per_page => 25)
   end
 
   # GET /projects/1
