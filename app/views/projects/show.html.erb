@@ -129,13 +129,7 @@
         <%= @project.client_meeting %>
       </div>
     <% end %>
-    
-    <% if @project.client_proposal.length >= 1 %>
-      <div class="show3">
-        <u><%= model_class.human_attribute_name(:client_proposal) %>:</u><br>
-        <%= simple_format(@project.client_proposal) %>
-      </div>
-    <% end %>
+  
     
     <div class="show3">
       <div class="well" style="text-align:center;float:left;width:47%;margin-right:3%;">  
