@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711201117) do
+ActiveRecord::Schema.define(version: 20160713171146) do
 
   create_table "project_cicons", force: :cascade do |t|
     t.integer  "project_id"
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20160711201117) do
     t.string   "client_name"
     t.string   "client_contact"
     t.string   "client_meeting"
-    t.text     "client_proposal"
     t.string   "project_start"
     t.string   "project_finish"
     t.string   "billing_street"
