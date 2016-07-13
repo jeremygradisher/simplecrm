@@ -93,37 +93,19 @@
     <%=f.error_span(:nbd) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :project_status, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-2">
-      <%#= f.text_field :project_status, :class => 'form-control' %>
-      <%= f.select :project_status, ['Prospect', 'In Process', 'Complete'], {include_blank: true}, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:project_status) %>
-    
-    <div class="prospect_form">
-      <%= f.label :phases, :class => 'control-label col-lg-2' %>
-      <div class="col-lg-2">
-        <%= f.select :phases, ['(1) Marketing', '(2) Contact', '(3) Profile', '(4) Project', '(5) Meeting', '(6) Proposal', '(7) Interview', '(8) Agreement', '(9) Start Date'], {include_blank: false}, :class => 'form-control' %>
-      </div>
-      <%=f.error_span(:phases) %>
-    </div>
-  </div>
-   
-  <hr style="clear:both;">
-  
+
   <div class="form-group">
     <%= f.label :client_name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-4">
       <%= f.text_field :client_name, :class => 'form-control' %>
     </div>
     <%=f.error_span(:client_name) %>
-  </div>
-  
-  <div class="form-group">
+
+
+
     <% if @project_cicons.exists? %>
     <%= f.label :client_Icon, :class => 'control-label col-lg-2'  %>
-        <div class="col-lg-10">
+        <div class="col-lg-4">
           <% @project_cicons.each do |p| %>
           <div class="form-control">
                 <%= image_tag p.cicon_url, :class => 'form-control-image' %>
@@ -152,6 +134,32 @@
     <% end %>
   </div>
 
+
+  <div class="form-group">
+    <%= f.label :project_status, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%#= f.text_field :project_status, :class => 'form-control' %>
+      <%= f.select :project_status, ['Prospect', 'In Process', 'Complete'], {include_blank: true}, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:project_status) %>
+    
+    <div class="prospect_form">
+      <%= f.label :phases, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-2">
+        <%= f.select :phases, ['(1) Marketing', '(2) Contact', '(3) Profile', '(4) Project', '(5) Meeting', '(6) Proposal', '(7) Interview', '(8) Agreement', '(9) Start Date'], {include_blank: false}, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(:phases) %>
+    </div>
+  </div>
+   
+
+
+<!-- Everything above here is on the form no matter the status -->    
+
+<!-- 1 prospect form only -->  
+<div class="prospect_form"> 
+
+  <hr style="clear:both;">
   <div class="form-group">
     <%= f.label :client_contact, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -189,8 +197,8 @@
     </div>
     <%=f.error_span(:billing_zip) %>
   </div>
-
-<!-- Everything above here is on the form no matter the status -->  
+</div>
+<!-- 1 end -->
 
 <!-- 2 Everything here is for prospect status only -->
 <div class="prospect_form"> 
