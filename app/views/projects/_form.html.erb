@@ -237,7 +237,7 @@
     <% else %>  
       <%#= f.fields_for :project_proposals do |p| %>
          <%= f.label :proposal, :class => 'control-label col-lg-2'  %>
-         <div class="col-lg-4">
+         <div class="col-lg-10">
          <%= f.file_field :proposal, :multiple => true, name: "project_proposals[proposal][]", :class => 'form-control' %>
 
          </div>
@@ -270,7 +270,7 @@
     <% else %>  
       <%#= f.fields_for :project_contracts do |p| %>
          <%= f.label :contract, :class => 'control-label col-lg-2'  %>
-         <div class="col-lg-4">
+         <div class="col-lg-10">
          <%= f.file_field :contract, :multiple => true, name: "project_contracts[contract][]", :class => 'form-control' %>
 
          </div>
