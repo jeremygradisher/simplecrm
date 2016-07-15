@@ -183,87 +183,82 @@
   
 <!-- no matter what -->    
     <div class="show3">
-      <div class="well" style="text-align:center;float:left;width:47%;margin-right:3%;">  
-      <strong>Project Proposal:</strong><br><br>
+      <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+      <strong>Project Proposal:</strong><br>
       <% if @project_proposals.exists? %>
           <% @project_proposals.each do |p| %>
-            
-            <%#= link_to p.proposal_url, p.proposal_url, :target => '_blank' %>
-            <br>
-            <%#= link_to t('.view', :default => t("View Attachment")),
-                    p.proposal_url, :class => 'btn btn-default', :target => '_blank' %>
             <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
                        p.proposal_url, :class => 'btn btn-default', 
                        :title => 'View Attachment', :target => '_blank'  %>
-                <%#= link_to t('.edit', :default => t("Edit Attachment")),
-                      edit_project_proposal_path(p), :class => 'btn btn-default' %>
                 <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
                        edit_project_proposal_path(p), :class => 'btn btn-primary', 
                        :title => 'Edit Attachment' %>
-                <%#= link_to t('.destroy', :default => t("Destroy Attachment")),
-                      project_proposal_path(p),
-                      :method => 'delete',
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-danger' %>
                 <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
                     project_proposal_path(p),
                     :method => 'delete',
                     :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                     :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-                <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
                        edit_project_path(@project), :class => 'btn btn-primary', 
                        :title => 'Upload Additional Document' %><br>
           <% end %>
       <% else %>
-        <br>
-         <%#= link_to t('.edit', :default => t("Edit Project to add Project Proposal")),
-                      edit_project_path(@project), :class => 'btn btn-default' %>
         <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
                        edit_project_path(@project), :class => 'btn btn-primary', 
                        :title => 'Upload' %>
       <% end %>
       </div>
       
-    <div class="well" style="text-align:center;float:left;width:47%;margin-right:3%;">  
-      <strong>Project Contract:</strong><br><br>
+    <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+      <strong>Project Contract:</strong><br>
       <% if @project_contracts.exists? %>
           <% @project_contracts.each do |p| %>
-            
-            <%#= link_to p.contract_url, p.contract_url, :target => '_blank' %>
-            <br>
-            <%#= link_to t('.view', :default => t("View Attachment")),
-                    p.contract_url, :class => 'btn btn-default', :target => '_blank' %>
             <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
                        p.contract_url, :class => 'btn btn-default', 
                        :title => 'View Attachment', :target => '_blank'  %>
-                <%#= link_to t('.edit', :default => t("Edit Attachment")),
-                      edit_project_contract_path(p), :class => 'btn btn-default' %>
                 <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
                        edit_project_contract_path(p), :class => 'btn btn-primary', 
                        :title => 'Edit Attachment' %>
-                <%#= link_to t('.destroy', :default => t("Destroy Attachment")),
-                      project_contract_path(p),
-                      :method => 'delete',
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-danger' %>
                 <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
                     project_contract_path(p),
                     :method => 'delete',
                     :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                     :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-                <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
                        edit_project_path(@project), :class => 'btn btn-primary', 
                        :title => 'Upload Additional Document' %><br>
           <% end %>
       <% else %>
-        <br>
-         <%#= link_to t('.edit', :default => t("Edit Project to add Project Contract")),
-                      edit_project_path(@project), :class => 'btn btn-default' %>
         <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
                        edit_project_path(@project), :class => 'btn btn-primary', 
                        :title => 'Upload' %>
       <% end %>
       </div>
+      
+  <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+  <strong>Revised Contract:</strong><br>
+  <% if @project_prevcontracts.exists? %>
+      <% @project_prevcontracts.each do |p| %>
+        <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
+                   p.prevcontract_url, :class => 'btn btn-default', 
+                   :title => 'View Attachment', :target => '_blank'  %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                   edit_project_prevcontract_path(p), :class => 'btn btn-primary', 
+                   :title => 'Edit Attachment' %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                project_prevcontract_path(p),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
+            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary', 
+                   :title => 'Upload Additional Document' %><br>
+      <% end %>
+  <% else %>
+    <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
+  <% end %>
+  </div>
 
     </div><!--end <div class="show3">-->
     
@@ -349,6 +344,90 @@
 <!-- end if in process -->
 
 
+
+
+
+<!-- if in process or complete -->  
+<% if @project.project_status == 'In Process' || @project.project_status == 'Complete' %>
+  <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+  <strong>Project Invoices:</strong><br>
+  <% if @project_invoices.exists? %>
+      <% @project_invoices.each do |p| %>
+        <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
+                   p.invoice_url, :class => 'btn btn-default', 
+                   :title => 'View Attachment', :target => '_blank'  %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                   edit_project_invoice_path(p), :class => 'btn btn-primary', 
+                   :title => 'Edit Attachment' %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                project_invoice_path(p),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
+            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary', 
+                   :title => 'Upload Additional Document' %><br>
+      <% end %>
+  <% else %>
+    <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
+  <% end %>
+  </div>
+  
+  <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+  <strong>Project W9:</strong><br>
+  <% if @project_pw9s.exists? %>
+      <% @project_pw9s.each do |p| %>
+        <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
+                   p.pw9_url, :class => 'btn btn-default', 
+                   :title => 'View Attachment', :target => '_blank'  %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                   edit_project_pw9_path(p), :class => 'btn btn-primary', 
+                   :title => 'Edit Attachment' %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                project_pw9_path(p),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
+            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary', 
+                   :title => 'Upload Additional Document' %><br>
+      <% end %>
+  <% else %>
+    <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
+  <% end %>
+  </div>
+  
+  <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+  <strong>Project Documents:</strong><br>
+  <% if @project_pdocuments.exists? %>
+      <% @project_pdocuments.each do |p| %>
+        <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
+                   p.pdocument_url, :class => 'btn btn-default', 
+                   :title => 'View Attachment', :target => '_blank'  %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                   edit_project_pdocument_path(p), :class => 'btn btn-primary', 
+                   :title => 'Edit Attachment' %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                project_pdocument_path(p),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
+            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary', 
+                   :title => 'Upload Additional Document' %><br>
+      <% end %>
+  <% else %>
+    <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
+  <% end %>
+  </div>
+
+  <hr style="clear:both;">
+
+<% end %>
+<!-- end if in process or complete -->  
     
     
 

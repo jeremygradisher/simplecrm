@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713171146) do
+ActiveRecord::Schema.define(version: 20160714204331) do
 
   create_table "project_cicons", force: :cascade do |t|
     t.integer  "project_id"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20160713171146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_invoices", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "invoice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "project_pdocuments", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "pdocument"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "project_picons", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "picon"
@@ -34,9 +48,23 @@ ActiveRecord::Schema.define(version: 20160713171146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_prevcontracts", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "prevcontract"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "project_proposals", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "proposal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "project_pw9s", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "pw9"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
