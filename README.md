@@ -2,8 +2,6 @@
 ## Customer Relationship Management for work.shopMG
 
 Outstanding to do list as follows:<br>
--branded 404, 422 and 500 (needed now)
-
 -Project form validations (There are no current validations - that's ok for internal)
 
 ###wishlist:<br>
