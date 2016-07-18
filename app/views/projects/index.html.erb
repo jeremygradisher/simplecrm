@@ -3,7 +3,7 @@
 <div class="new-user-login">
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading"><strong style="font-size:125%;">Project Database Search</strong></div>
+      <div class="panel-heading"><strong style="font-size:125%;">work.shop projects</strong></div>
       <div class="panel-body">
     
       <fieldset class="search-field">
@@ -47,7 +47,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:project_name) %></th>
-      <th><%= model_class.human_attribute_name(:project_status) %></th>
+      <th><%= sort_link @search, :project_status, "Status" %></th>
+      <!--<th><%#= model_class.human_attribute_name(:project_status) %></th>-->
       <th><%= model_class.human_attribute_name(:client_name) %></th>
       <th><%= model_class.human_attribute_name(:services) %></th>
       <th><%= model_class.human_attribute_name(:project_start) %></th>
