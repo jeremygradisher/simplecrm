@@ -24,15 +24,17 @@
           <%= image_tag p.picon_url, :style => 'max-width:100%;padding:5%;' %>
     <% end %>
     
-    <hr>
-    
+    <div style="width:100%;padding:10px;background-color:#f4f4f4;border-radius:4px;">
     <% if @project.client_name.length >= 1 %>
-      <p style="text-align:center;">Client: <%= @project.client_name %></p>
+      <p style="text-align:left;font-size:12pt;margin-bottom:2px;">Client: <%= @project.client_name %></p>
     <% end %>
+    
+    <hr style="margin-top:6px;margin-bottom:6px;">
     
     <% @project_cicons.each do |p| %>
       <%= image_tag p.cicon_url, :style => 'max-width:100%;padding:5%;' %>
     <% end %>
+    </div>
   </div>
 <!-- end left column 1/3 -->
 
@@ -57,46 +59,37 @@
 
       <div class="show2">
         <% if @project.project_status == 'Prospect' %>
-          <span class="prospect_form"><u>Prospect Phase</u>: <%= @project.phases %></span>
+          <div class="prospect_form"><u>Prospect Phase</u>: <span style="margin-left:40px;"><%= @project.phases %></span></div>
             <% if @project.phases == '(1) Marketing' %>
-              <br><%= image_tag("progress1.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress1.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(2) Contact' %>
-              <br><%= image_tag("progress2.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress2.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(3) Profile' %>
-              <br><%= image_tag("progress3.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress3.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(4) Project' %>
-              <br><%= image_tag("progress4.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress4.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(5) Meeting' %>
-              <br><%= image_tag("progress5.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress5.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(6) Proposal' %>
-              <br><%= image_tag("progress6.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress6.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(7) Interview' %>
-              <br><%= image_tag("progress7.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress7.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(8) Agreement' %>
-              <br><%= image_tag("progress8.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress8.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
             <% if @project.phases == '(9) Start Date' %>
-              <br><%= image_tag("progress9.png", style: "max-width:100%;margin-top:20px;") %>
+              <br><%= image_tag("progress9.png", style: "max-width:100%;margin-top:10px;") %>
             <% end %>
           <hr>
         <% end %>
       </div>
-
-    <% if @project.nbd.length >= 1 %>
-      <div class="col-lg-6" style="padding-left:0;">
-        <div class="show3">      
-            <u><%= model_class.human_attribute_name(:nbd) %></u>:
-            <%= @project.nbd %>
-        </div>
-      </div>
-    <% end %>
 
     <% if @services.length >= 1 %>
       <div class="col-lg-6" style="padding-left:0;">
@@ -110,7 +103,16 @@
         </div>
       </div>
     <% end %>
-    
+
+    <% if @project.nbd.length >= 1 %>
+      <div class="col-lg-6" style="padding-left:0;">
+        <div class="show3">      
+            <%= model_class.human_attribute_name(:nbd) %>:
+            <%= @project.nbd %>
+        </div>
+      </div>
+    <% end %>
+
     <% if @project.nbd.length >= 1 || @services.length >= 1 %>
     <hr style="clear:both;">
     <% end %>    
@@ -181,89 +183,7 @@
 <% end %>
 <!-- end if prospect -->
   
-<!-- no matter what -->    
-    <div class="show3">
-      <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
-      <strong>Project Proposal:</strong><br>
-      <% if @project_proposals.exists? %>
-          <% @project_proposals.each do |p| %>
-            <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
-                       p.proposal_url, :class => 'btn btn-default', 
-                       :title => 'View Attachment', :target => '_blank'  %>
-                <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
-                       edit_project_proposal_path(p), :class => 'btn btn-primary', 
-                       :title => 'Edit Attachment' %>
-                <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
-                    project_proposal_path(p),
-                    :method => 'delete',
-                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                    :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-                <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                       edit_project_path(@project), :class => 'btn btn-primary', 
-                       :title => 'Upload Additional Document' %><br>
-          <% end %>
-      <% else %>
-        <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                       edit_project_path(@project), :class => 'btn btn-primary', 
-                       :title => 'Upload' %>
-      <% end %>
-      </div>
-      
-    <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
-      <strong>Project Contract:</strong><br>
-      <% if @project_contracts.exists? %>
-          <% @project_contracts.each do |p| %>
-            <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
-                       p.contract_url, :class => 'btn btn-default', 
-                       :title => 'View Attachment', :target => '_blank'  %>
-                <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
-                       edit_project_contract_path(p), :class => 'btn btn-primary', 
-                       :title => 'Edit Attachment' %>
-                <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
-                    project_contract_path(p),
-                    :method => 'delete',
-                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                    :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-                <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                       edit_project_path(@project), :class => 'btn btn-primary', 
-                       :title => 'Upload Additional Document' %><br>
-          <% end %>
-      <% else %>
-        <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                       edit_project_path(@project), :class => 'btn btn-primary', 
-                       :title => 'Upload' %>
-      <% end %>
-      </div>
-      
-  <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
-  <strong>Revised Contract:</strong><br>
-  <% if @project_prevcontracts.exists? %>
-      <% @project_prevcontracts.each do |p| %>
-        <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
-                   p.prevcontract_url, :class => 'btn btn-default', 
-                   :title => 'View Attachment', :target => '_blank'  %>
-            <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
-                   edit_project_prevcontract_path(p), :class => 'btn btn-primary', 
-                   :title => 'Edit Attachment' %>
-            <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
-                project_prevcontract_path(p),
-                :method => 'delete',
-                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                   edit_project_path(@project), :class => 'btn btn-primary', 
-                   :title => 'Upload Additional Document' %><br>
-      <% end %>
-  <% else %>
-    <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
-         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
-  <% end %>
-  </div>
 
-    </div><!--end <div class="show3">-->
-    
-    <hr style="clear:both;">
-<!-- no matter what -->  
 
 
     
@@ -344,6 +264,90 @@
 <!-- end if in process -->
 
 
+<!-- no matter what -->    
+    <div class="show3">
+      <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+      <strong>Project Proposal:</strong><br>
+      <% if @project_proposals.exists? %>
+          <% @project_proposals.each do |p| %>
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
+                       p.proposal_url, :class => 'btn btn-default', 
+                       :title => 'View Attachment', :target => '_blank'  %>
+                <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                       edit_project_proposal_path(p), :class => 'btn btn-primary', 
+                       :title => 'Edit Attachment' %>
+                <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                    project_proposal_path(p),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
+                <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                       edit_project_path(@project), :class => 'btn btn-primary', 
+                       :title => 'Upload Additional Document' %><br>
+          <% end %>
+      <% else %>
+        <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                       edit_project_path(@project), :class => 'btn btn-primary btn-grey', 
+                       :title => 'Upload' %>
+      <% end %>
+      </div>
+      
+    <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+      <strong>Project Contract:</strong><br>
+      <% if @project_contracts.exists? %>
+          <% @project_contracts.each do |p| %>
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
+                       p.contract_url, :class => 'btn btn-default', 
+                       :title => 'View Attachment', :target => '_blank'  %>
+                <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                       edit_project_contract_path(p), :class => 'btn btn-primary', 
+                       :title => 'Edit Attachment' %>
+                <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                    project_contract_path(p),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
+                <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                       edit_project_path(@project), :class => 'btn btn-primary', 
+                       :title => 'Upload Additional Document' %><br>
+          <% end %>
+      <% else %>
+        <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                       edit_project_path(@project), :class => 'btn btn-primary btn-grey', 
+                       :title => 'Upload' %>
+      <% end %>
+      </div>
+      
+  <div class="well" style="text-align:center;float:left;width:30%;margin-right:3%;">  
+  <strong>Revised Contract:</strong><br>
+  <% if @project_prevcontracts.exists? %>
+      <% @project_prevcontracts.each do |p| %>
+        <%= link_to '<i class="fa fa-eye"></i>'.html_safe,
+                   p.prevcontract_url, :class => 'btn btn-default', 
+                   :title => 'View Attachment', :target => '_blank'  %>
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                   edit_project_prevcontract_path(p), :class => 'btn btn-primary', 
+                   :title => 'Edit Attachment' %>
+            <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                project_prevcontract_path(p),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
+            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary', 
+                   :title => 'Upload Additional Document' %><br>
+      <% end %>
+  <% else %>
+    <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+         edit_project_path(@project), :class => 'btn btn-primary btn-grey', :title => 'Upload' %>
+  <% end %>
+  </div>
+
+    </div><!--end <div class="show3">-->
+    
+    <hr style="clear:both;">
+<!-- no matter what -->  
+
 
 
 
@@ -364,13 +368,13 @@
                 :method => 'delete',
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                 :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                   edit_project_path(@project), :class => 'btn btn-primary', 
+            <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary btn-grey', 
                    :title => 'Upload Additional Document' %><br>
       <% end %>
   <% else %>
     <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
-         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
+         edit_project_path(@project), :class => 'btn btn-primary btn-grey', :title => 'Upload' %>
   <% end %>
   </div>
   
@@ -389,13 +393,13 @@
                 :method => 'delete',
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                 :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                   edit_project_path(@project), :class => 'btn btn-primary', 
+            <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary btn-grey', 
                    :title => 'Upload Additional Document' %><br>
       <% end %>
   <% else %>
     <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
-         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
+         edit_project_path(@project), :class => 'btn btn-primary btn-grey', :title => 'Upload' %>
   <% end %>
   </div>
   
@@ -414,13 +418,13 @@
                 :method => 'delete',
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                 :class => 'btn btn-danger', :title => 'Destroy Attachment' %>
-            <%#= link_to '<i class="fa fa-upload"></i>'.html_safe,
-                   edit_project_path(@project), :class => 'btn btn-primary', 
+            <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
+                   edit_project_path(@project), :class => 'btn btn-primary btn-grey', 
                    :title => 'Upload Additional Document' %><br>
       <% end %>
   <% else %>
     <%= link_to '<i class="fa fa-upload"></i>'.html_safe,
-         edit_project_path(@project), :class => 'btn btn-primary', :title => 'Upload' %>
+         edit_project_path(@project), :class => 'btn btn-primary btn-grey', :title => 'Upload' %>
   <% end %>
   </div>
 
