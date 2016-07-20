@@ -231,14 +231,14 @@
         </td>
         <% end %>
 
-        <% if @project.project_start.length >= 1 || @project.project_finish.length >= 1 %>
+        <% if @project.project_start.length >= 1 && @project.project_finish.length >= 1 %>
         <td>
         <% finish_parsed_time = Time.strptime(@project.project_finish,"%m/%d/%Y") %>
         <% start_parsed_time = Time.strptime(@project.project_start,"%m/%d/%Y") %>
     
         <div class="show3">
           <u>Project Duration</u>:
-        <%= (finish_parsed_time.to_date - start_parsed_time.to_date).to_i %> days
+        <%#= (finish_parsed_time.to_date - start_parsed_time.to_date).to_i %> days
         </div>
         
         </td>
