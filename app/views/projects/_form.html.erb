@@ -114,18 +114,15 @@
       <%=f.error_span(:phases) %>
     </div>
     
-      <div class="form-group">
-      <%= f.label "Services", :class => 'control-label col-lg-1' %>
-      <div class="col-lg-4">
-        <%= f.collection_check_boxes :service_ids, Service.all, :id, :name do |b| %>
-          <div class="collection-check-box-altered">
-            <%= b.check_box %>
-            <%= b.label %>
-          </div>
-        <% end %>
-      </div>
-  </div>
-    
+        <%= f.label "Services", :class => 'control-label col-lg-1' %>
+        <div class="col-lg-4">
+          <%= f.collection_check_boxes :service_ids, Service.all, :id, :name do |b| %>
+            <div class="collection-check-box-altered">
+              <%= b.check_box %>
+              <%= b.label %>
+            </div>
+          <% end %>
+        </div>
   </div>
    
 
