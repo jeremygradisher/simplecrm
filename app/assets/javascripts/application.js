@@ -15,5 +15,6 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
+//= require javascript-phone-format
 //= require tag-it
 //= require_tree .

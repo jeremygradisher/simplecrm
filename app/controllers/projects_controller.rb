@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
   def edit
     @project_picon = @project.project_picons.build
     @project_picons = @project.project_picons.all
-    @project_cicons = @project.project_cicons.build
+    @project_cicon = @project.project_cicons.build
     @project_cicons = @project.project_cicons.all
     @project_proposal = @project.project_proposals.build
     @project_proposals = @project.project_proposals.all
@@ -70,6 +70,15 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    
+    @project_picons = @project.project_picons.all
+    @project_cicons = @project.project_cicons.all
+    @project_proposals = @project.project_proposals.all
+    @project_contracts = @project.project_contracts.all
+    @project_invoices = @project.project_invoices.all
+    @project_prevcontracts = @project.project_prevcontracts.all
+    @project_pw9s = @project.project_pw9s.all
+    @project_pdocuments = @project.project_pdocuments.all
 
     respond_to do |format|
       if @project.save
@@ -125,6 +134,16 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    
+    @project_picons = @project.project_picons.all
+    @project_cicons = @project.project_cicons.all
+    @project_proposals = @project.project_proposals.all
+    @project_contracts = @project.project_contracts.all
+    @project_invoices = @project.project_invoices.all
+    @project_prevcontracts = @project.project_prevcontracts.all
+    @project_pw9s = @project.project_pw9s.all
+    @project_pdocuments = @project.project_pdocuments.all
+    
     respond_to do |format|
       if @project.update(project_params)
         if params.has_key?(:project_picons)
@@ -194,6 +213,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :project_status, :phases, :grand_total, :nbd, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links, { service_ids:[] }, project_picons_attributes: [:id, :project_id, :picon], project_cicons_attributes: [:id, :project_id, :cicon], project_proposals_attributes: [:id, :project_id, :proposal], project_contracts_attributes: [:id, :project_id, :contract], project_invoices_attributes: [:id, :project_id, :invoice], project_prevcontracts_attributes: [:id, :project_id, :prevcontract], project_pw9s_attributes: [:id, :project_id, :pw9], project_pdocuments_attributes: [:id, :project_id, :pdocument])
+      params.require(:project).permit(:name, :project_status, :phases, :grand_total, :nbd, :primary_street, :primary_city, :primary_state, :primary_zip, :client_name, :email, :telephone, :correspondence_notes, :client_contact, :client_meeting, :client_proposal, :project_start, :project_finish, :billing_street, :billing_city, :billing_state, :billing_zip, :brief_description, :staffing_notes, :deal_terms, :rate, :additional_terms, :doc_links, { service_ids:[] }, project_picons_attributes: [:id, :project_id, :picon], project_cicons_attributes: [:id, :project_id, :cicon], project_proposals_attributes: [:id, :project_id, :proposal], project_contracts_attributes: [:id, :project_id, :contract], project_invoices_attributes: [:id, :project_id, :invoice], project_prevcontracts_attributes: [:id, :project_id, :prevcontract], project_pw9s_attributes: [:id, :project_id, :pw9], project_pdocuments_attributes: [:id, :project_id, :pdocument])
     end
 end

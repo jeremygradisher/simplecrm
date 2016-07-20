@@ -163,19 +163,16 @@
     
 <!-- if prospect -->  
 <% if @project.project_status == 'Prospect' %>
-    <% if @project.client_contact.length >= 1 %>
-      <div class="show3">      
-          <u><%= model_class.human_attribute_name(:client_contact) %></u>:
-          <%= @project.client_contact %>
-      </div>
-    <% end %>
-    
     <% if @project.client_meeting.length >= 1 %>
       <div class="show3">      
           <u><%= model_class.human_attribute_name(:client_meeting) %></u>:
           <%= @project.client_meeting %>
       </div>
     <% end %>
+    
+
+    
+    
 
           <% if @project.client_contact.length >= 1 || @project.client_meeting.length >= 1 %>
             <hr>
@@ -183,8 +180,42 @@
 <% end %>
 <!-- end if prospect -->
   
+<!-- whenever -->   
+<%# if @project.project_status == 'In Process' || @project.project_status == 'Complete' %>
 
+    <% if @project.client_contact.length >= 1 %>
+      <div class="show3">      
+          <u><%= model_class.human_attribute_name(:client_contact) %></u>:
+          <%= @project.client_contact %>
+      </div>
+    <% end %>
+    
+    <% if @project.email.length >= 1 %>
+      <div class="show3">      
+          <u><%= model_class.human_attribute_name(:email) %></u>:
+          <%= @project.email %>
+      </div>
+    <% end %>
+    
+    <% if @project.telephone.length >= 1 %>
+      <div class="show3">      
+          <u><%= model_class.human_attribute_name(:telephone) %></u>:
+          <%= @project.telephone %>
+      </div>
+    <% end %>
+    
+    <% if @project.correspondence_notes.length >= 1 %>    
+    <div class="show3">
+      <u><%= model_class.human_attribute_name(:correspondence) %>:</u><br>
+      <%= simple_format(@project.correspondence_notes) %>
+    </div>
+    <% end %>
 
+          <% if @project.client_contact.length >= 1 || @project.email.length >= 1 || @project.telephone.length >= 1 || @project.correspondence_notes.length >= 1 %>
+            <hr>
+          <% end %>
+<%# end %>
+<!-- whenever -->  
 
     
 <!-- if in process or complete -->   

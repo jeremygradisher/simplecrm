@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714204331) do
+ActiveRecord::Schema.define(version: 20160720153911) do
 
   create_table "project_cicons", force: :cascade do |t|
     t.integer  "project_id"
@@ -91,11 +91,14 @@ ActiveRecord::Schema.define(version: 20160714204331) do
     t.string   "rate"
     t.text     "additional_terms"
     t.text     "doc_links"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "phases"
     t.string   "grand_total"
     t.string   "nbd"
+    t.string   "email"
+    t.string   "telephone"
+    t.text     "correspondence_notes"
   end
 
   create_table "projects_services", id: false, force: :cascade do |t|

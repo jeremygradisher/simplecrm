@@ -98,48 +98,6 @@
     <%=f.error_span(:nbd) %>
   </div>
 
-
-  <div class="form-group">
-    <%= f.label :client_name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-4">
-      <%= f.text_field :client_name, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:client_name) %>
-
-
-
-    <% if @project_cicons.exists? %>
-    <%= f.label :client_Icon, :class => 'control-label col-lg-2'  %>
-        <div class="col-lg-4">
-          <% @project_cicons.each do |p| %>
-          <div class="form-control">
-                <%= image_tag p.cicon_url, :class => 'form-control-image' %>
-          
-                <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
-                      edit_project_cicon_path(p), :class => 'form-control-button',
-                      :title => 'Edit Attachment', :style => 'color:#428bca;'  %>
-                <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
-                      project_cicon_path(p),
-                      :method => 'delete', :class => 'form-control-button', 
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :title => 'Delete Attachment', :style => 'color:#d9534f;'  %>
-                </div>
-                
-          <% end %>
-        </div>
-    
-    <% else %>
-    
-     <%#= f.fields_for :project_picons do |p| %>
-         <%= f.label :client_icon, :class => 'control-label col-lg-2'  %>
-         <div class="col-lg-4">
-         <%= f.file_field :cicon, :multiple => true, name: "project_cicons[cicon][]", :class => 'form-control' %>
-         </div>
-     <%# end %>
-    <% end %>
-  </div>
-
-
   <div class="form-group">
     <%= f.label :project_status, :class => 'control-label col-lg-2' %>
     <div class="col-lg-2">
@@ -179,6 +137,48 @@
 
   <h3>Client</h3>
   <hr style="clear:both;">
+  
+  <div class="form-group">
+    <%= f.label :client_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.text_field :client_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:client_name) %>
+
+
+
+    <% if @project_cicons.exists? %>
+    <%= f.label :client_Icon, :class => 'control-label col-lg-2'  %>
+        <div class="col-lg-4">
+          <% @project_cicons.each do |p| %>
+          <div class="form-control">
+                <%= image_tag p.cicon_url, :class => 'form-control-image' %>
+          
+                <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
+                      edit_project_cicon_path(p), :class => 'form-control-button',
+                      :title => 'Edit Attachment', :style => 'color:#428bca;'  %>
+                <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
+                      project_cicon_path(p),
+                      :method => 'delete', :class => 'form-control-button', 
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :title => 'Delete Attachment', :style => 'color:#d9534f;'  %>
+                </div>
+                
+          <% end %>
+        </div>
+    
+    <% else %>
+    
+     <%#= f.fields_for :project_picons do |p| %>
+         <%= f.label :client_icon, :class => 'control-label col-lg-2'  %>
+         <div class="col-lg-4">
+         <%= f.file_field :cicon, :multiple => true, name: "project_cicons[cicon][]", :class => 'form-control' %>
+         </div>
+     <%# end %>
+    <% end %>
+  </div>  
+  
+  
   <div class="form-group">
     <%= f.label :client_contact, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -188,40 +188,64 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :billing_address, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-3">
-      <%= f.text_field :billing_street, :class => 'form-control' %>
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.text_field :email, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:billing_street) %>
+    <%=f.error_span(:email) %>
 
-    
-    <%= f.label :city, :class => 'control-label col-lg-1' %>
-    <div class="col-lg-2">
-      <%= f.text_field :billing_city, :class => 'form-control' %>
+    <%= f.label :telephone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-4">
+      <%= f.text_field :telephone, :class => 'form-control',
+      :onkeydown => 'javascript:backspacerDOWN(this,event);', :onkeyup => 'javascript:backspacerUP(this,event);' %>
     </div>
-    <%=f.error_span(:billing_city) %>
-
-    
-    <%= f.label :state, :class => 'control-label col-lg-1' %>
-    <div class="col-lg-1">
-      <%#= f.text_field :billing_state, :class => 'form-control' %>
-      <%= f.select :billing_state, ['AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'], {include_blank: true}, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:billing_state) %>
-
-
-    <%= f.label :zip, :class => 'control-label col-lg-1' %>
-    <div class="col-lg-1">
-      <%= f.text_field :billing_zip, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:billing_zip) %>
+    <%=f.error_span(:telephone) %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :correspondence_notes, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%#= f.text_field :correspondence_notes, :class => 'form-control' %>
+      <%= f.text_area :correspondence_notes, :rows => 4, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:correspondence_notes) %>
+  </div>
+
+      <div class="form-group">
+        <%= f.label :billing_address, :class => 'control-label col-lg-2' %>
+        <div class="col-lg-3">
+          <%= f.text_field :billing_street, :class => 'form-control' %>
+        </div>
+        <%=f.error_span(:billing_street) %>
+    
+        
+        <%= f.label :city, :class => 'control-label col-lg-1' %>
+        <div class="col-lg-2">
+          <%= f.text_field :billing_city, :class => 'form-control' %>
+        </div>
+        <%=f.error_span(:billing_city) %>
+    
+        
+        <%= f.label :state, :class => 'control-label col-lg-1' %>
+        <div class="col-lg-1">
+          <%#= f.text_field :billing_state, :class => 'form-control' %>
+          <%= f.select :billing_state, ['AL', 'AK', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'], {include_blank: true}, :class => 'form-control' %>
+        </div>
+        <%=f.error_span(:billing_state) %>
+    
+    
+        <%= f.label :zip, :class => 'control-label col-lg-1' %>
+        <div class="col-lg-1">
+          <%= f.text_field :billing_zip, :class => 'form-control' %>
+        </div>
+        <%=f.error_span(:billing_zip) %>
+      </div>
+
 </div>
 <!-- 1 end -->
 
 <!-- 2 Everything here is for prospect status only -->
 <div class="prospect_form"> 
-  <hr style="clear:both;">
 
   <div class="form-group">
     <%= f.label :client_meeting, :class => 'control-label col-lg-2' %>
