@@ -263,7 +263,7 @@
    
               <div class="form-control" style="height:50px;">
                 
-              <%= link_to p.proposal_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/", ""), p.proposal_url, :target => '_blank', :style => 'font-size:10pt;' %>
+              <%= link_to p.proposal_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/project_proposal", ""), p.proposal_url, :target => '_blank', :style => 'font-size:10pt;' %>
               
               <%#= phrase.sub!("/uploads/project_proposal/proposal/", "") %>
               <%#= truncate(title.html_safe, length:56) %></title>
@@ -299,7 +299,7 @@
         <% @project_contracts.each do |p| %>
    
               <div class="form-control" style="height:50px;">
-              <%= link_to p.contract_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/", ""), p.contract_url, :target => '_blank', :style => 'font-size:10pt;' %>
+              <%= link_to p.contract_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/project_contract", ""), p.contract_url, :target => '_blank', :style => 'font-size:10pt;' %>
               <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
                     edit_project_contract_path(p), :class => 'btn btn-primary', 
                     :title => 'Edit Attachment'  %>
@@ -331,7 +331,7 @@
       <div class="col-lg-10">
         <% @project_prevcontracts.each do |p| %>
               <div class="form-control">
-              <%= link_to p.prevcontract_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/", ""), p.prevcontract_url, :target => '_blank', :style => 'margin-right: 4px;vertical-align:top;' %>
+              <%= link_to p.prevcontract_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/project_prevcontract", ""), p.prevcontract_url, :target => '_blank', :style => 'margin-right: 4px;vertical-align:top;' %>
               <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
                     edit_project_prevcontract_path(p), :class => 'form-control-button', 
                     :style => 'color:#428bca', :title => 'Edit Attachment'  %>
