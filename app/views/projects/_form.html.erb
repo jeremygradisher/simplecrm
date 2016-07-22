@@ -261,12 +261,11 @@
       <div class="col-lg-10">
         <% @project_proposals.each do |p| %>
    
-              <div class="form-control" style="height:50px;">
-                
+              <div class="form-control">
               <%= link_to p.proposal_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/project_proposal", ""), p.proposal_url, :target => '_blank', :style => 'font-size:10pt;' %>
               <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
                     edit_project_proposal_path(p), :class => 'form-control-button', 
-                    :style => 'color:#428bca;', :title => 'Edit Attachment'  %>
+                    :style => 'color:#428bca;margin-left:6px;', :title => 'Edit Attachment'  %>
               <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
                     project_proposal_path(p),
                     :method => 'delete', :style => 'color:#d9534f;',
@@ -294,11 +293,11 @@
       <div class="col-lg-10">
         <% @project_contracts.each do |p| %>
    
-              <div class="form-control" style="height:50px;">
+              <div class="form-control">
               <%= link_to p.contract_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/project_contract", ""), p.contract_url, :target => '_blank', :style => 'font-size:10pt;' %>
               <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
                     edit_project_contract_path(p), :class => 'form-control-button', 
-                    :style => 'color:#428bca;', :title => 'Edit Attachment'  %>
+                    :style => 'color:#428bca;margin-left:6px;', :title => 'Edit Attachment'  %>
               <%#= link_to "Destroy Attachment", destroy_associate_attachment_path(p) %>
               <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
                     project_contract_path(p),
@@ -326,11 +325,11 @@
     <%= f.label :revised_contract, :class => 'control-label col-lg-2'  %>
       <div class="col-lg-10">
         <% @project_prevcontracts.each do |p| %>
-              <div class="form-control" style="height:50px;">
+              <div class="form-control">
               <%= link_to p.prevcontract_url.gsub("https://workshopcrmbucket.s3.amazonaws.com/uploads/project_prevcontract", ""), p.prevcontract_url, :target => '_blank', :style => 'font-size:10pt;' %>
               <%= link_to '<i class="fa fa-edit"></i>'.html_safe,
                     edit_project_prevcontract_path(p), :class => 'form-control-button', 
-                    :style => 'color:#428bca;', :title => 'Edit Attachment'  %>
+                    :style => 'color:#428bca;margin-left:6px;', :title => 'Edit Attachment'  %>
               <%= link_to '<i class="fa fa-remove"></i>'.html_safe,
                     project_prevcontract_path(p),
                     :method => 'delete', :style => 'color:#d9534f;',
