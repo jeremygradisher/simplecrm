@@ -124,9 +124,6 @@
           <% end %>
         </div>
   </div>
-   
-
-
 <!-- Everything above here is on the form no matter the status -->    
 
 <!-- 1 prospect form only -->  
@@ -238,12 +235,6 @@
         <%=f.error_span(:billing_zip) %>
       </div>
 
-</div>
-<!-- 1 end -->
-
-<!-- 2 Everything here is for prospect status only -->
-<div class="prospect_form"> 
-
   <div class="form-group">
     <%= f.label :client_meeting, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -251,6 +242,14 @@
     </div>
     <%=f.error_span(:client_meeting) %>
   </div>
+
+</div>
+<!-- 1 end -->
+
+<!-- 2 Everything here is for prospect status only -->
+<div class="prospect_form"> 
+
+
   
   <h3>Client Documents</h3>
   <hr>
