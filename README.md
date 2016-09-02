@@ -19,16 +19,19 @@ of users who share a common access with specific privileges to the software inst
 
 -it's using sqlite3 in development and PostgreSQL in production (gemfile)
 
+-it uses AWS for file storage - just needs an S3 bucket and credentials<br>
+$ heroku config:set S3_ACCESS_KEY=xxxxxxxxxxxxxxxxxx<br>
+$ heroku config:set S3_SECRET_KEY=xxxxxxxxxxxxxxxxxx<br>
+$ heroku config:set S3_BUCKET=xxxxxxxxxxxxxxxxxx
+
+###Sendgrid
+-can be changed in app/models/user.rb - eliminate :confirmable and there is no need for sendgrid.
+
 -it's using sendgrid for sign-up email confirmations (.baschrc)<br>
 export SENDGRID_USERNAME=xxxxxxxxxx<br>
 export SENDGRID_PASSWORD=xxxxxxxxxx
 
 -send grid port (config/environment.rb) :port => '587' for heroku sign-ups :port => '2587' for Cloud9 sign-ups
-
--it uses AWS for file storage - just needs an S3 bucket and credentials<br>
-$ heroku config:set S3_ACCESS_KEY=xxxxxxxxxxxxxxxxxx<br>
-$ heroku config:set S3_SECRET_KEY=xxxxxxxxxxxxxxxxxx<br>
-$ heroku config:set S3_BUCKET=xxxxxxxxxxxxxxxxxx
 
 -config/environments/development.rb and production has something that needs to be addressed:
 
