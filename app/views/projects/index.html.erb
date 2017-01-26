@@ -17,7 +17,7 @@
           
           <div class="col-lg-2">
               <%= f.label :project_status_cont, "Project Status:" %><br>
-              <%= f.select :project_status_cont, options_for_select([['Prospect'], ['In Process'], ['Complete']], :selected => @search.project_status_cont), include_blank: true %>
+              <%= f.select :project_status_cont, options_for_select([['Prospect'], ['In Process']], :selected => @search.project_status_cont), include_blank: true %>
           </div>
           
           <div class="col-lg-5">
