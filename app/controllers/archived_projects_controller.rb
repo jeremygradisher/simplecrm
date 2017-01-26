@@ -1,6 +1,7 @@
 class ArchivedProjectsController < ApplicationController
   def index
-    @search = Project.where(:project_status => "Complete").search(params[:q])
+    #@search = Project.where(:project_status => "Complete").search(params[:q])
+    @search = Project.where(project_status: ['Complete', 'Archived']).search(params[:q])
     @projects = @search.result(distinct: true).order(:name, :id)
   end
 

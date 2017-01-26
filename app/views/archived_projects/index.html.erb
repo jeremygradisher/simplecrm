@@ -15,12 +15,12 @@
               <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Search for..." %>
           </div>
           
-          <!--
+          
           <div class="col-lg-2">
-              <%#= f.label :project_status_cont, "Project Status:" %><br>
-              <%#= f.select :project_status_cont, options_for_select([['Prospect'], ['In Process'], ['Complete']], :selected => @search.project_status_cont), include_blank: true %>
+              <%= f.label :project_status_cont, "Project Status:" %><br>
+              <%= f.select :project_status_cont, options_for_select([['Complete'], ['Archived']], :selected => @search.project_status_cont), include_blank: true %>
           </div>
-          -->
+          
           
           <div class="col-lg-5">
             <%= f.label "Services:" %><br />
@@ -62,7 +62,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= link_to project.name, project_path(project) %></td>
-        <td><%= project.project_status %></td>
+        <td><% if project.project_status == 'Complete' %><span style="color:#00cc00;"><% else %><span style="color:#ff0000;"><% end %><%= project.project_status %></span></td>
         <td><%= project.client_name %></td>
         <td><% project.services.each do |p| %>
           <%= p.name %> 
