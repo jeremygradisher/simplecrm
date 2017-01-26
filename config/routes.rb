@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  #get 'archived_projects/index'
+  #get 'archived_projects/show'
+  resources :archived_projects
+
   resources :project_pdocuments
   resources :project_pw9s
   resources :project_prevcontracts
@@ -10,11 +14,9 @@ Rails.application.routes.draw do
   resources :project_cicons
   resources :project_picons
   resources :projects
-  get 'users/index'
-
-  get 'users/show'
-
-  #get 'users/index' #this was added when I added the users_controller.rb - don't think I need it
+  #get 'users/index'
+  #get 'users/show'
+  #this was added when I added the users_controller.rb - don't think I need it
 
   devise_for :users, :controllers => { :registrations => 'devise/registrations' }
   resources :users, :only => [:index, :show, :destroy]

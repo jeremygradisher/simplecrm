@@ -1,4 +1,4 @@
-class Project < ActiveRecord::Base
+class ArchivedProject < ActiveRecord::Base
     
     has_many :project_picons, dependent: :destroy
     accepts_nested_attributes_for :project_picons
@@ -27,7 +27,7 @@ class Project < ActiveRecord::Base
     has_and_belongs_to_many :services, dependent: :destroy
     
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :email, presence: false, :allow_blank => true, length: { maximum: 105 }, format: { with: VALID_EMAIL_REGEX }
+    validates :email, presence: false, :allow_blank => true, uniqueness: { case_sensitive: false }, length: { maximum: 105 }, format: { with: VALID_EMAIL_REGEX }
     
     
 end

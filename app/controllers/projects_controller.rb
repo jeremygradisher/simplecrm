@@ -4,7 +4,10 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @search = Project.search(params[:q])
+    #@search = Project.search(params[:q])
+    #Changed the following to loose the completed/archived projects...
+    #I will need to added an archived section
+    @search = Project.where.not(:project_status => "Complete").search(params[:q])
     
     #@projects = Project.all
     @projects = @search.result(distinct: true).order(:name, :id)

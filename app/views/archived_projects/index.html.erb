@@ -1,0 +1,91 @@
+<%- model_class = ArchivedProject -%>
+
+<div class="new-user-login">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><strong style="font-size:125%;">work.shop projects</strong></div>
+      <div class="panel-body">
+    
+      <fieldset class="search-field">
+        <!--<legend>Search Our Database</legend>-->
+        <%= search_form_for @search, url: archived_projects_path do |f| %>
+          
+          <div class="col-lg-3">
+              <%= f.label :name_cont, "Project Name Contains:" %><br>
+              <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Search for..." %>
+          </div>
+          
+          <!--
+          <div class="col-lg-2">
+              <%#= f.label :project_status_cont, "Project Status:" %><br>
+              <%#= f.select :project_status_cont, options_for_select([['Prospect'], ['In Process'], ['Complete']], :selected => @search.project_status_cont), include_blank: true %>
+          </div>
+          -->
+          
+          <div class="col-lg-5">
+            <%= f.label "Services:" %><br />
+            <%= f.collection_check_boxes :services_id_in_any, Service.all, :id, :name do |b| %>
+              <div class="collection-check-box-altered form-control-altered">
+                <%= b.check_box %>
+                <%= b.label %>
+              </div>
+            <% end %>
+          </div>
+          
+          <div class="col-lg-2">
+            <div class="actions" style="text-align:right;margin-top:23px;">
+              <%= f.submit "Search", :class => "btn btn-primary-branded jicon", :style => "height:38px;" %>
+              <%= link_to "Clear", request.path, :class => "btn btn-default jicon", :style => "height:38px;" %>
+            </div>
+          </div>
+        <% end %>
+      </fieldset>
+      </div>
+    </div>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:archived_project_name) %></th>
+      <th><%= sort_link @search, :project_status, "Status" %></th>
+      <!--<th><%#= model_class.human_attribute_name(:project_status) %></th>-->
+      <th><%= model_class.human_attribute_name(:client_name) %></th>
+      <th><%= model_class.human_attribute_name(:services) %></th>
+      <th><%= model_class.human_attribute_name(:project_start) %></th>
+      <th><%= model_class.human_attribute_name(:project_finish) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project_path(project) %></td>
+        <td><%= project.project_status %></td>
+        <td><%= project.client_name %></td>
+        <td><% project.services.each do |p| %>
+          <%= p.name %> 
+          <% end %>
+        </td> 
+        <td><%= project.project_start %></td>
+        <td><%= project.project_finish %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.view")),
+                      project_path(project), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_project_path(project), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      project_path(project),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%#= link_to t('.new', :default => t("helpers.links.new")),
+            new_project_path,
+            :class => 'btn btn-primary' %>
