@@ -104,7 +104,7 @@ min-height: 664px;
 .show3 {font-size:12pt;margin-bottom:10px}
 
 .form-control-altered, #q_wrklocs_id_in_any, #q_project_status_cont, #q_active_eq {
-display: block;
+    display: block;
     //width: 60px;
     height: 38px;
     padding: 6px 8px;
@@ -120,6 +120,7 @@ display: block;
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    margin-bottom:4px;
 }
 
 #q_wrklocs_id_in_any {
