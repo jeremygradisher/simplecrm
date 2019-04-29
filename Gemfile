@@ -61,6 +61,8 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
+  #changing this to see if I can fix the heroku error
+  gem 'pg', '~> 0.18'
   gem 'rails_12factor'
 end
