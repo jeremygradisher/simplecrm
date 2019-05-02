@@ -6,10 +6,10 @@ gem 'rails', '5.0.2'
 ruby "2.6.0"
 
 # Use sqlite3 as the database for Active Record
-gem 'devise'
-gem 'twitter-bootstrap-rails'
-gem 'devise-bootstrap-views'
-gem 'bootstrap-datepicker-rails'
+gem 'devise', '~>4.6'
+gem 'twitter-bootstrap-rails', '3.2.2'
+gem 'devise-bootstrap-views', '0.0.9'
+gem 'bootstrap-datepicker-rails', '~> 1.8.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -18,16 +18,16 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-gem 'carrierwave'
-gem 'mini_magick'
+gem 'carrierwave', '1.3.1'
+gem 'mini_magick', '4.9.3'
 gem 'fog'
-gem 'ransack'
+gem 'ransack', '2.1.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-rails', '4.2.2'
+gem 'jquery-ui-rails', '6.0.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
