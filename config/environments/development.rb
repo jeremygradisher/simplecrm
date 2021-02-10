@@ -9,7 +9,7 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
   config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_options = { :host => 'https://workshopcrm-jeremygradisher.c9users.io'}
+  config.action_mailer.default_url_options = { :host => 'https://759d43aea4274a95881cb5d4e9b29e5d.vfs.cloud9.us-east-1.amazonaws.com'}
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
