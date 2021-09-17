@@ -1,3 +1,5 @@
 workshopcrm - Customer Relationship Management for work.shopMG
 
+issues with send-grid - 09-17-2021
+
 (readme.rdoc)
