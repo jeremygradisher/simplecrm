@@ -1,7 +1,8 @@
 # workshopcrm - WIP<br>
 ## Customer Relationship Management for work.shopMG
 
-09-28-22 - testing to make sure before I upgrade Ruby
+09-28-22 - Going after upgrading Ruby
+Second quick test
 
 Outstanding to do list as follows:<br>
 -Project form validations (There are no current validations - that's ok for internal)
