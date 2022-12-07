@@ -3,7 +3,11 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.7.2'
-ruby "2.6.4"
+#ruby "2.6.4"
+ruby '2.7.6'
+#ruby '3.0.4'
+#ruby '3.1.2'
+
 
 # Use sqlite3 as the database for Active Record
 gem 'devise', '~>4.6'
