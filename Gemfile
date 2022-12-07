@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.2'
-ruby "2.6.0"
+gem 'rails', '5.0.7.2'
+ruby "2.6.4"
 
 # Use sqlite3 as the database for Active Record
 gem 'devise', '~>4.6'
@@ -48,9 +48,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'sendgrid-ruby'
 
+gem 'pg', '~> 0.18'
+#gem 'pg', '~> 1.4', '>= 1.4.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3', '~> 1.3.6'
+  #gem 'sqlite3', '~> 1.3.6'
   gem 'byebug'
 end
 
@@ -65,6 +68,6 @@ end
 group :production do
   #gem 'pg'
   #changing this to see if I can fix the heroku error
-  gem 'pg', '~> 0.18'
+  #gem 'pg', '~> 0.18'
   gem 'rails_12factor'
 end
