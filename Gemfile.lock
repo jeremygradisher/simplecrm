@@ -275,6 +275,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-datepicker-rails
+  bundler (>= 2.4.4)
   byebug
   carrierwave
   coffee-rails
@@ -303,4 +304,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   1.17.3
+   2.4.4

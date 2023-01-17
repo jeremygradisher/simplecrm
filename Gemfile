@@ -4,9 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '5.0.7.2'
 gem 'rails', '7.0.4'
-#ruby "2.6.4"
 #ruby '2.7.6'
-#ruby '3.0.4'
 ruby '3.1.2'
 
 
@@ -40,7 +38,7 @@ gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', group: :doc
 
-#gem 'bundler', '~> 1.17', '>= 1.17.2'
+gem 'bundler', '>= 2.4.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
