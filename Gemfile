@@ -18,7 +18,7 @@ gem 'bootstrap-datepicker-rails'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
-gem 'sassc-rails'
+gem 'sassc'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
