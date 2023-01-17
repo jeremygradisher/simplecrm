@@ -39,4 +39,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  config.hosts << "bcbffb9cd2924e2a8b544991a1e100ad.vfs.cloud9.us-east-1.amazonaws.com"
+
 end

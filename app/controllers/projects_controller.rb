@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     #Changed the following to loose the completed/archived projects...
     #I will need to added an archived section
     #@search = Project.where.not(:project_status => "Complete").search(params[:q])
-    @search = Project.where.not(project_status: ['Complete', 'Archived']).search(params[:q])
+    @search = Project.where.not(project_status: ['Complete', 'Archived']).ransack(params[:q])
     
     #@projects = Project.all
     @projects = @search.result(distinct: true).order(:name, :id)
