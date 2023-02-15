@@ -1,16 +1,9 @@
-<h1>workshopcrm - WIP</h1>
-<h2>Customer Relationship Management for work.shopMG</h2>
-<hr>
-<h3>This has been edited in the new AWS Cloud9 environment.<br>
-<h3>Also a second save from the master to check the git difference.<br>
-<h3>And one last time after upgrading the stack.</h3><br>
+<h1>SimpleCRM</h1>
+<h2>Customer Relationship Management for projects</h2>
 
-<br><br>
 
 <hr>
 <h2># If cloning this realize a couple of things:</h2><br><br>
-
--it's using sqlite3 in development and PostgreSQL in production (gemfile)<br><br>
 
 -it's using sendgrid for sign-up email confirmations (.baschrc)<br>
 export SENDGRID_USERNAME=xxxxxxxxxx<br>
@@ -26,11 +19,11 @@ $ heroku config:set S3_BUCKET=xxxxxxxxxxxxxxxxxx<br><br>
 -config/environments/development.rb and production has something that needs to be addressed:<br><br>
 
 development:<br>
-config.action_mailer.default_url_options = { :host => 'hxxp://greeby-associate-tracker-jxxxxxxxxxxxer.c9users.io'}
+config.action_mailer.default_url_options = { :host => 'hxxp://asdf-associate-tracker-jxxxxxxxxxxxer.c9users.io'}
 <br><br>
 production:<br>
-config.action_mailer.default_url_options = { :host => 'greeby-associate-tracker.herokuapp.com', :protocol => 'https'}
+config.action_mailer.default_url_options = { :host => 'asdf-associate-tracker.herokuapp.com', :protocol => 'https'}
   <br><br>
 -config/initializers/devise.rb - where the email notifications are coming from:<br>
-config.mailer_sender = 'no-reply@workshop-mg.com'
+config.mailer_sender = 'no-reply@youremail.com'
 <br><br><br><br>

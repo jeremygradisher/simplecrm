@@ -7,7 +7,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :user_name => 'apikey',
     :password => ENV['SENDGRID_API_KEY'],
-    :domain => 'workshopcrm.herokuapp.com',
+    :domain => 'simplecrm.herokuapp.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
@@ -94,5 +94,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  config.hosts << "workshopcrm.herokuapp.com"
+  config.hosts << "simplecrm.herokuapp.com"
 end

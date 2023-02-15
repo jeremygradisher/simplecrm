@@ -20,6 +20,12 @@ padding-left: 0;
 padding-bottom: 10px;
 padding-top: 5px;
 }
+
+
+.navbar-nav {
+    margin-top:20px;
+}
+
 .nav.navbar-nav {
 .navbar-link {
 border-radius: 5px;
@@ -167,7 +173,7 @@ a:hover {
     padding: 8px 15px;
     font-size: 18px;
     line-height: 20px;
-    height: 50px;
+    height: 80px;
 }
 
 .form-control-image {
@@ -263,6 +269,8 @@ td > a:hover, td > a:visited {
 .align-center { text-align:center;margin-left:auto;margin-right:auto;}
 
 .btn-primary-altered {background-color:#f16133;border-color: #f16133;}
+
+.navbar-right {margin-top:10px;}
 
 .nav.navbar-right li .btn-primary:hover, .nav.navbar-right li .btn-primary:focus {
     background-color: #ff3d00 !important; border-color: #ff3d00 !important;

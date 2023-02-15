@@ -1,14 +1,10 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-#gem 'rails', '5.0.7.2'
-gem 'rails', '7.0.4'
-#ruby '2.7.6'
-ruby '3.1.2'
+gem 'rails', '~> 7.0', '>= 7.0.4.2'
 
+ruby '3.1.3'
 
-# Use sqlite3 as the database for Active Record
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'

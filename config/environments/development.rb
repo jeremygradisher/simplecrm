@@ -9,7 +9,7 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
   config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_options = { :host => 'https://759d43aea4274a95881cb5d4e9b29e5d.vfs.cloud9.us-east-1.amazonaws.com'}
+  config.action_mailer.default_url_options = { :host => 'https://81338e4cd1974f1397a19c5259ec9241.vfs.cloud9.us-east-1.amazonaws.com'}
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
@@ -40,6 +40,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   
-  config.hosts << "bcbffb9cd2924e2a8b544991a1e100ad.vfs.cloud9.us-east-1.amazonaws.com"
+  config.hosts << "81338e4cd1974f1397a19c5259ec9241.vfs.cloud9.us-east-1.amazonaws.com"
 
 end
